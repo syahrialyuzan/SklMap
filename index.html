@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Peta Titik Aceh Singkil</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+/* Layout: daftar tempat di kiri, bidang koordinat (proyeksi Mercator) di kanan; di layar sempit ditumpuk. */
+:root {
+  --bg: #f3f5f4;
+  --surface: #ffffff;
+  --fg: #17231f;
+  --muted: #5d6b66;
+  --line: #d5dcd9;
+  --accent: #0b6b5d;
+  --accent-fg: #ffffff;
+  --map-bg: #e9efec;
+  --map-grid: #cdd8d3;
+  --map-label: #3e4d47;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1715; --surface: #16211e; --fg: #e6efeb; --muted: #93a39d; --line: #2a3a35;
+    --accent: #4cc2ad; --accent-fg: #08201b; --map-bg: #121c19; --map-grid: #22322d; --map-label: #b4c4be;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1715; --surface: #16211e; --fg: #e6efeb; --muted: #93a39d; --line: #2a3a35;
+  --accent: #4cc2ad; --accent-fg: #08201b; --map-bg: #121c19; --map-grid: #22322d; --map-label: #b4c4be;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.5 var(--font-body);
+  padding-block: 20px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+
+header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+h1 { font: 700 clamp(1.5rem, 4vw, 2.1rem)/1.1 var(--font-display); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.sub { margin: 4px 0 0; color: var(--muted); max-width: 60ch; }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+button, .btn {
+  font: 500 14px/1 var(--font-body);
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 38px; padding: 0 14px;
+  border-radius: 8px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--fg);
+  cursor: pointer; text-decoration: none;
+}
+button:hover, .btn:hover { border-color: var(--accent); }
+button:focus-visible, .btn:focus-visible, input:focus-visible, canvas:focus-visible, .item:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.primary:hover { filter: brightness(1.06); }
+
+.status { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; min-height: 20px; }
+.badge { font: 500 12px/1 var(--font-body); padding: 4px 8px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
+.badge.warn { border-color: var(--accent); color: var(--accent); }
+
+.app { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 16px; align-items: start; }
+.side { display: flex; flex-direction: column; gap: 10px; min-width: 0; height: clamp(380px, 70vh, 720px); }
+.search {
+  width: 100%; min-height: 40px; padding: 0 12px;
+  border-radius: 8px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--fg); font: 15px var(--font-body);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  min-height: 32px; padding: 0 10px; font-size: 13px; border-radius: 999px;
+}
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.list { flex: 1; min-height: 0; overflow-y: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin: 0; padding: 4px; list-style: none; }
+.item {
+  display: flex; gap: 10px; align-items: flex-start; width: 100%;
+  padding: 9px 10px; border: 0; border-radius: 8px; background: transparent; text-align: left; min-height: 0; justify-content: flex-start;
+}
+.item:hover { background: var(--bg); }
+.item[aria-current="true"] { background: var(--bg); box-shadow: inset 0 0 0 1.5px var(--accent); }
+.item .dot { margin-top: 6px; }
+.item .t { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.item .n { font-weight: 600; overflow-wrap: anywhere; }
+.item .c { font: 12.5px var(--font-mono); color: var(--muted); }
+.empty { padding: 20px 12px; color: var(--muted); text-align: center; }
+
+.mapwrap {
+  position: relative; min-width: 0;
+  height: clamp(380px, 70vh, 720px);
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  background: var(--map-bg);
+}
+canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+canvas.drag { cursor: grabbing; }
+.zoom { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 6px; }
+.zoom button { width: 38px; padding: 0; font-size: 20px; }
+.cursor-read { position: absolute; left: 10px; top: 10px; font: 12px var(--font-mono); color: var(--map-label); background: color-mix(in srgb, var(--surface) 82%, transparent); padding: 4px 8px; border-radius: 6px; pointer-events: none; }
+
+.detail {
+  position: absolute; left: 10px; right: 10px; bottom: 10px; max-width: 420px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px; display: flex; flex-direction: column; gap: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+}
+.detail h2 { font: 700 1.15rem/1.2 var(--font-display); margin: 0; overflow-wrap: anywhere; }
+.detail .meta { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+.detail .addr { margin: 0; color: var(--muted); font-size: 14px; }
+.coords { font: 500 15px var(--font-mono); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; user-select: all; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.close { position: absolute; top: 6px; right: 6px; width: 32px; min-height: 32px; padding: 0; border: 0; background: transparent; font-size: 20px; }
+
+.help { color: var(--muted); font-size: 13px; margin: 0; }
+.help a { color: var(--accent); }
+.help code, .fmt code { font: 12.5px var(--font-mono); background: var(--surface); border: 1px solid var(--line); padding: 1px 5px; border-radius: 4px; }
+.fmt { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+.fmt summary { cursor: pointer; font-weight: 600; }
+.fmt table { border-collapse: collapse; margin-top: 10px; font: 12.5px var(--font-mono); }
+.fmt th, .fmt td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; white-space: nowrap; }
+.fmt .scroll { overflow-x: auto; }
+.drop-on .mapwrap { outline: 2px dashed var(--accent); outline-offset: -6px; }
+
+@media (max-width: 820px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .mapwrap { order: -1; height: clamp(340px, 58vh, 560px); }
+  .side { height: auto; }
+  .list { max-height: 340px; }
+  .detail { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap" id="root">
+  <header>
+    <div>
+      <h1>Peta Titik Aceh Singkil</h1>
+      <p class="sub">Lihat koordinat toko, sekolah, dan tempat lain di Kabupaten Aceh Singkil. Muat tabel Excel Anda, lalu cari, saring per kecamatan atau kategori, dan salin koordinatnya.</p>
+    </div>
+    <div class="tools">
+      <label class="btn primary" for="file" id="fileLabel" tabindex="0">Muat file Excel</label>
+      <input id="file" type="file" accept=".xlsx,.xls,.csv" hidden>
+      <button id="tpl" type="button" hidden>Unduh template Excel</button>
+      <button id="resetSample" type="button">Kembali ke data OpenStreetMap</button>
+    </div>
+  </header>
+
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <div class="app">
+    <aside class="side">
+      <input id="q" class="search" type="search" placeholder="Cari nama, kategori, atau alamat" aria-label="Cari tempat" autocomplete="off">
+      <select id="kec" class="search" aria-label="Saring kecamatan"></select>
+      <div class="chips" id="chips" role="group" aria-label="Saring kategori"></div>
+      <ul class="list" id="list"></ul>
+    </aside>
+
+    <section class="mapwrap" aria-label="Peta koordinat">
+      <canvas id="map" tabindex="0" aria-label="Peta. Seret untuk menggeser, gulir atau cubit untuk memperbesar."></canvas>
+      <div class="cursor-read" id="readout">lat, lng</div>
+      <div class="zoom">
+        <button id="zin" type="button" aria-label="Perbesar">+</button>
+        <button id="zout" type="button" aria-label="Perkecil">−</button>
+        <button id="zfit" type="button" aria-label="Tampilkan semua titik" style="font-size:13px">Semua</button>
+      </div>
+      <div class="detail" id="detail" hidden></div>
+    </section>
+  </div>
+
+  <p class="help">Latar peta berupa grid garis lintang dan bujur, tanpa gambar jalan. Untuk melihat jalan dan petunjuk arah, buka titik yang dipilih di Google Maps.</p>
+
+  <p class="help">Data awal: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>, lisensi ODbL, diambil 5 November 2026. Data OSM di wilayah ini belum lengkap, dan kecamatan hanya terisi bila tertulis di nama tempat.</p>
+
+  <details class="fmt">
+    <summary>Format tabel Excel yang dibaca</summary>
+    <p style="margin:8px 0 0">Baris pertama berisi judul kolom. Kolom <code>nama</code>, <code>latitude</code>, dan <code>longitude</code> wajib ada. Kolom <code>kategori</code>, <code>kecamatan</code>, dan <code>alamat</code> boleh dikosongkan. Judul <code>lat</code>, <code>lng</code>, <code>lon</code>, <code>jenis</code>, dan <code>name</code> juga dikenali. Koordinat dengan koma desimal (3,5952) ikut terbaca.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>nama</th><th>kategori</th><th>kecamatan</th><th>latitude</th><th>longitude</th><th>alamat</th></tr></thead>
+        <tbody><tr><td>Toko Maju Jaya</td><td>Toko</td><td>Singkil</td><td>2.2830</td><td>97.7830</td><td>Jl. Contoh No. 1</td></tr></tbody>
+      </table>
+    </div>
+  </details>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* Daftar 11 kecamatan Kabupaten Aceh Singkil. */
+  var KECAMATAN = ["Danau Paris", "Gunung Meriah", "Kota Baharu", "Kuala Baru", "Pulau Banyak", "Pulau Banyak Barat", "Simpang Kanan", "Singkil", "Singkil Utara", "Singkohor", "Suro"];
+
+  /* Tampilan awal wilayah (titik tengah kabupaten). */
+  var REGION = { lat: 2.333, lng: 97.667, z: 8.9 };
+
+  /* Data awal dari OpenStreetMap (ekspor Overpass, 5 November 2026). Kecamatan hanya diisi bila tertulis di nama tempat. */
+  var SAMPLE = [
+    { name: "SD Negeri Pulau Baguk", cat: "Sekolah", kec: "", lat: 2.298543, lng: 97.408562, addr: "" },
+    { name: "SMA Negeri 1 Pulau Banyak", cat: "Sekolah", kec: "Pulau Banyak", lat: 2.310854, lng: 97.404685, addr: "" },
+    { name: "SD Negeri Pulau Balai", cat: "Sekolah", kec: "", lat: 2.303631, lng: 97.408424, addr: "" },
+    { name: "SMP Negeri 1 Pulau Banyak", cat: "Sekolah", kec: "Pulau Banyak", lat: 2.299030, lng: 97.407664, addr: "" },
+    { name: "MIS Pulau Banyak", cat: "Sekolah", kec: "Pulau Banyak", lat: 2.304525, lng: 97.408349, addr: "" },
+    { name: "SMA Negeri 1 Pulau Banyak Barat", cat: "Sekolah", kec: "Pulau Banyak Barat", lat: 2.230123, lng: 97.234006, addr: "" },
+    { name: "SMPN Teluk Nibung", cat: "Sekolah", kec: "", lat: 2.346603, lng: 97.387277, addr: "" },
+    { name: "SDN Teluk nibung", cat: "Sekolah", kec: "", lat: 2.339283, lng: 97.385384, addr: "" },
+    { name: "SMA Negeri 1 Singkil", cat: "Sekolah", kec: "Singkil", lat: 2.284117, lng: 97.797096, addr: "" },
+    { name: "SD Negeri Selok Aceh", cat: "Sekolah", kec: "", lat: 2.285710, lng: 97.835528, addr: "" },
+    { name: "SMA Negeri 1 Singkil Utara", cat: "Sekolah", kec: "Singkil Utara", lat: 2.284411, lng: 97.919694, addr: "" },
+    { name: "SMA Negeri 1 Simpang Kanan", cat: "Sekolah", kec: "Simpang Kanan", lat: 2.437181, lng: 97.987895, addr: "" },
+    { name: "SMA Negeri 1 Gunung Meriah", cat: "Sekolah", kec: "Gunung Meriah", lat: 2.370780, lng: 97.954091, addr: "" },
+    { name: "SMA Negeri 2 Gunung Meriah", cat: "Sekolah", kec: "Gunung Meriah", lat: 2.423712, lng: 97.927015, addr: "" },
+    { name: "SMA Negeri 1 Suro", cat: "Sekolah", kec: "Suro", lat: 2.497209, lng: 98.042987, addr: "" },
+    { name: "Rara M-Mart: Orchid Nursery", cat: "Toko", kec: "", lat: 2.291627, lng: 97.836398, addr: "Penjual bunga (florist)" },
+    { name: "Loket Ferry", cat: "Toko", kec: "", lat: 2.297780, lng: 97.408279, addr: "Loket tiket" }
+  ];
+
+  var PALETTE = ["#1f9e89", "#e0782b", "#4f7dd6", "#c9507a", "#8a6bd1", "#b09a1c", "#3f9a4f", "#d2574a"];
+  var MIN_Z = 2, MAX_Z = 19;
+
+  var el = function (id) { return document.getElementById(id); };
+  var canvas = el("map"), ctx = canvas.getContext("2d");
+  var state = {
+    places: [], isSample: true, q: "", cat: null, kec: null, selected: null,
+    cx: 0.5, cy: 0.5, z: 10, w: 300, h: 300, dpr: 1, cursor: null
+  };
+  var catColor = {};
+
+  /* ---------- proyeksi Mercator ---------- */
+  function mx(lng) { return (lng + 180) / 360; }
+  function my(lat) {
+    var s = Math.sin(lat * Math.PI / 180);
+    s = Math.max(-0.9999, Math.min(0.9999, s));
+    return 0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI);
+  }
+  function lngOf(x) { return x * 360 - 180; }
+  function latOf(y) { var n = Math.PI - 2 * Math.PI * y; return 180 / Math.PI * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n))); }
+  function scale() { return 256 * Math.pow(2, state.z); }
+  function toScreen(lat, lng) {
+    var S = scale();
+    return { x: (mx(lng) - state.cx) * S + state.w / 2, y: (my(lat) - state.cy) * S + state.h / 2 };
+  }
+  function fromScreen(px, py) {
+    var S = scale();
+    return { x: (px - state.w / 2) / S + state.cx, y: (py - state.h / 2) / S + state.cy };
+  }
+
+  /* ---------- data ---------- */
+  function assignColors() {
+    var cats = [];
+    state.places.forEach(function (p) { if (cats.indexOf(p.cat) < 0) cats.push(p.cat); });
+    cats.sort(function (a, b) { return a.localeCompare(b, "id"); });
+    catColor = {};
+    cats.forEach(function (c, i) { catColor[c] = PALETTE[i % PALETTE.length]; });
+  }
+  function setPlaces(list, isSample) {
+    state.places = list.map(function (p, i) { return { id: i, name: p.name, cat: p.cat || "Lainnya", kec: p.kec || "", lat: p.lat, lng: p.lng, addr: p.addr || "" }; });
+    state.isSample = !!isSample;
+    state.q = ""; state.cat = null; state.kec = null; state.selected = null;
+    el("q").value = "";
+    assignColors();
+    renderKec(); renderChips(); renderList(); renderDetail(); fitAll(); draw();
+  }
+  function visible() {
+    var q = state.q.trim().toLowerCase();
+    return state.places.filter(function (p) {
+      if (state.cat && p.cat !== state.cat) return false;
+      if (state.kec && p.kec !== state.kec) return false;
+      if (!q) return true;
+      return (p.name + " " + p.cat + " " + p.kec + " " + p.addr).toLowerCase().indexOf(q) >= 0;
+    });
+  }
+
+  /* ---------- membaca Excel ---------- */
+  function norm(s) { return String(s == null ? "" : s).toLowerCase().replace(/[^a-z]/g, ""); }
+  var KEYS = {
+    name: ["nama", "namatempat", "name", "tempat", "toko", "sekolah"],
+    cat: ["kategori", "jenis", "category", "tipe", "type"],
+    lat: ["latitude", "lat", "lintang"],
+    lng: ["longitude", "lng", "lon", "long", "bujur"],
+    addr: ["alamat", "address", "keterangan"],
+    kec: ["kecamatan", "kec", "distrik", "district"],
+    both: ["koordinat", "coordinates", "coordinate", "latlng", "latlong"]
+  };
+  function pick(row, names) {
+    for (var k in row) { if (names.indexOf(norm(k)) >= 0 && row[k] !== "" && row[k] != null) return row[k]; }
+    return undefined;
+  }
+  function num(v) {
+    if (typeof v === "number") return v;
+    var s = String(v == null ? "" : v).trim().replace(/\s/g, "");
+    if (!s) return NaN;
+    if (s.indexOf(",") >= 0 && s.indexOf(".") < 0) s = s.replace(",", ".");
+    else s = s.replace(/,/g, "");
+    return parseFloat(s);
+  }
+  function parseRows(rows) {
+    var out = [], skipped = 0;
+    rows.forEach(function (row) {
+      var name = pick(row, KEYS.name), lat = pick(row, KEYS.lat), lng = pick(row, KEYS.lng);
+      if ((lat === undefined || lng === undefined)) {
+        var both = pick(row, KEYS.both);
+        if (both !== undefined) {
+          var parts = String(both).split(/[;,]\s*/);
+          if (parts.length === 2) { lat = parts[0]; lng = parts[1]; }
+        }
+      }
+      var la = num(lat), ln = num(lng);
+      if (!name || !isFinite(la) || !isFinite(ln) || Math.abs(la) > 90 || Math.abs(ln) > 180) { skipped++; return; }
+      var cat = pick(row, KEYS.cat), addr = pick(row, KEYS.addr), kec = pick(row, KEYS.kec);
+      out.push({ name: String(name).trim(), cat: cat ? String(cat).trim() : "Lainnya", kec: kec ? String(kec).trim().replace(/^kec(amatan|\.)?\s+/i, "") : "", lat: la, lng: ln, addr: addr ? String(addr).trim() : "" });
+    });
+    return { items: out, skipped: skipped };
+  }
+  function loadFile(file) {
+    if (!file) return;
+    if (typeof XLSX === "undefined") { setStatus("Pembaca Excel belum termuat. Muat ulang halaman lalu coba lagi.", true); return; }
+    var fr = new FileReader();
+    fr.onerror = function () { setStatus("File tidak bisa dibaca. Coba simpan ulang sebagai .xlsx atau .csv.", true); };
+    fr.onload = function () {
+      try {
+        var wb = XLSX.read(fr.result, { type: "array" });
+        var rows = [];
+        wb.SheetNames.forEach(function (n) { rows = rows.concat(XLSX.utils.sheet_to_json(wb.Sheets[n], { defval: "" })); });
+        var r = parseRows(rows);
+        if (!r.items.length) { setStatus("Tidak ada baris yang valid. Pastikan ada kolom nama, latitude, dan longitude.", true); return; }
+        setPlaces(r.items, false);
+        setStatus(null, false, file.name, r.items.length, r.skipped);
+      } catch (e) {
+        setStatus("File tidak bisa dibuka. Pastikan formatnya .xlsx, .xls, atau .csv.", true);
+      }
+    };
+    fr.readAsArrayBuffer(file);
+  }
+  function setStatus(msg, warn, fname, count, skipped) {
+    var s = el("status");
+    s.textContent = "";
+    var b;
+    if (msg) { b = document.createElement("span"); b.className = "badge warn"; b.textContent = msg; s.appendChild(b); return; }
+    b = document.createElement("span"); b.className = "badge";
+    if (state.isSample) b.textContent = "Data awal dari OpenStreetMap: " + state.places.length + " titik. Muat Excel Anda untuk memakai data sendiri.";
+    else b.textContent = fname + ": " + count + " titik dimuat";
+    s.appendChild(b);
+    if (skipped) { var k = document.createElement("span"); k.textContent = skipped + " baris dilewati karena nama atau koordinatnya tidak valid."; s.appendChild(k); }
+    if (!state.isSample) { var t = document.createElement("span"); t.textContent = "Tampil hanya di browser Anda. Orang lain melihat data yang tertanam di halaman."; s.appendChild(t); }
+  }
+
+  /* ---------- panel kiri ---------- */
+  function renderChips() {
+    var box = el("chips"); box.textContent = "";
+    var counts = {};
+    state.places.forEach(function (p) { counts[p.cat] = (counts[p.cat] || 0) + 1; });
+    function mk(label, cat, n, color) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "chip";
+      b.setAttribute("aria-pressed", String(state.cat === cat));
+      if (color) { var d = document.createElement("span"); d.className = "dot"; d.style.background = color; b.appendChild(d); }
+      b.appendChild(document.createTextNode(label + " " + n));
+      b.addEventListener("click", function () { state.cat = cat; renderChips(); renderList(); draw(); });
+      box.appendChild(b);
+    }
+    mk("Semua", null, state.places.length, null);
+    Object.keys(counts).sort(function (a, b) { return a.localeCompare(b, "id"); }).forEach(function (c) { mk(c, c, counts[c], catColor[c]); });
+  }
+  function fmt(n) { return n.toFixed(6); }
+  function renderList() {
+    var ul = el("list"); ul.textContent = "";
+    var items = visible();
+    if (!items.length) {
+      var li = document.createElement("li"); li.className = "empty"; li.textContent = "Tidak ada tempat yang cocok. Ubah kata kunci atau kategori."; ul.appendChild(li); return;
+    }
+    items.forEach(function (p) {
+      var li = document.createElement("li");
+      var b = document.createElement("button"); b.type = "button"; b.className = "item";
+      if (state.selected === p.id) b.setAttribute("aria-current", "true");
+      var d = document.createElement("span"); d.className = "dot"; d.style.background = catColor[p.cat];
+      var t = document.createElement("span"); t.className = "t";
+      var n = document.createElement("span"); n.className = "n"; n.textContent = p.name;
+      var c = document.createElement("span"); c.className = "c"; c.textContent = fmt(p.lat) + ", " + fmt(p.lng);
+      t.appendChild(n); t.appendChild(c); b.appendChild(d); b.appendChild(t);
+      b.addEventListener("click", function () { select(p.id, true); });
+      li.appendChild(b); ul.appendChild(li);
+    });
+  }
+  function select(id, fly) {
+    state.selected = id;
+    var p = state.places[id];
+    if (fly && p) {
+      state.cx = mx(p.lng); state.cy = my(p.lat);
+      if (state.z < 14) state.z = 14;
+    }
+    renderList(); renderDetail(); draw();
+  }
+
+  /* ---------- kartu detail ---------- */
+  function copyText(text, btn) {
+    var done = function () { var o = btn.textContent; btn.textContent = "Tersalin"; setTimeout(function () { btn.textContent = o; }, 1400); };
+    var fallback = function () {
+      var ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) { btn.textContent = "Salin manual dari kotak"; }
+      document.body.removeChild(ta);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  function renderDetail() {
+    var box = el("detail"); box.textContent = "";
+    var p = state.places[state.selected];
+    if (!p) { box.hidden = true; return; }
+    box.hidden = false;
+    var x = document.createElement("button"); x.className = "close"; x.type = "button"; x.setAttribute("aria-label", "Tutup"); x.textContent = "×";
+    x.addEventListener("click", function () { state.selected = null; renderList(); renderDetail(); draw(); });
+    var h = document.createElement("h2"); h.textContent = p.name; h.style.paddingRight = "28px";
+    var meta = document.createElement("div"); meta.className = "meta";
+    var d = document.createElement("span"); d.className = "dot"; d.style.background = catColor[p.cat];
+    var m = document.createElement("span"); m.textContent = p.cat + (p.kec ? " · Kec. " + p.kec : "");
+    meta.appendChild(d); meta.appendChild(m);
+    box.appendChild(x); box.appendChild(h); box.appendChild(meta);
+    if (p.addr) { var a = document.createElement("p"); a.className = "addr"; a.textContent = p.addr; box.appendChild(a); }
+    var text = fmt(p.lat) + ", " + fmt(p.lng);
+    var c = document.createElement("div"); c.className = "coords"; c.textContent = text; box.appendChild(c);
+    var row = document.createElement("div"); row.className = "actions";
+    var cp = document.createElement("button"); cp.type = "button"; cp.className = "primary"; cp.textContent = "Salin koordinat";
+    cp.addEventListener("click", function () { copyText(text, cp); });
+    var g = document.createElement("a"); g.className = "btn"; g.target = "_blank"; g.rel = "noopener noreferrer";
+    g.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(p.lat + "," + p.lng);
+    g.textContent = "Buka di Google Maps";
+    row.appendChild(cp); row.appendChild(g); box.appendChild(row);
+  }
+
+  /* ---------- tampilan ---------- */
+  function fitAll() {
+    if (!state.places.length) { state.cx = mx(REGION.lng); state.cy = my(REGION.lat); state.z = REGION.z; return; }
+    var items = state.places;
+    var x0 = 1, x1 = 0, y0 = 1, y1 = 0;
+    items.forEach(function (p) { var x = mx(p.lng), y = my(p.lat); x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); });
+    state.cx = (x0 + x1) / 2; state.cy = (y0 + y1) / 2;
+    var pad = 70, dx = Math.max(x1 - x0, 1e-7), dy = Math.max(y1 - y0, 1e-7);
+    var zx = Math.log2(Math.max(state.w - 2 * pad, 50) / (256 * dx));
+    var zy = Math.log2(Math.max(state.h - 2 * pad, 50) / (256 * dy));
+    state.z = Math.max(MIN_Z, Math.min(16, Math.min(zx, zy)));
+  }
+  function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function gridStep(spanDeg) {
+    var steps = [30, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01, 0.005, 0.002, 0.001, 0.0005, 0.0002, 0.0001];
+    var S = scale(), pickStep = steps[0];
+    for (var i = 0; i < steps.length; i++) { if (steps[i] / 360 * S >= 90) pickStep = steps[i]; }
+    return pickStep;
+  }
+  function labelNum(v, step) {
+    var dec = step >= 1 ? 0 : Math.min(4, Math.ceil(-Math.log10(step) - 1e-9));
+    return v.toFixed(dec);
+  }
+  function draw() {
+    var W = state.w, H = state.h;
+    ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+    ctx.fillStyle = css("--map-bg"); ctx.fillRect(0, 0, W, H);
+
+    /* grid garis lintang dan bujur */
+    var tl = fromScreen(0, 0), br = fromScreen(W, H);
+    var lngMin = lngOf(tl.x), lngMax = lngOf(br.x), latMax = latOf(tl.y), latMin = latOf(br.y);
+    var step = gridStep(lngMax - lngMin);
+    ctx.lineWidth = 1; ctx.strokeStyle = css("--map-grid"); ctx.fillStyle = css("--map-label");
+    ctx.font = "11px " + css("--font-mono");
+    var v, p;
+    for (v = Math.ceil(lngMin / step) * step; v <= lngMax; v += step) {
+      p = toScreen(0, v).x; ctx.beginPath(); ctx.moveTo(Math.round(p) + 0.5, 0); ctx.lineTo(Math.round(p) + 0.5, H); ctx.stroke();
+      ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText(labelNum(v, step) + "°T", p + 4, H - 4);
+    }
+    for (v = Math.ceil(latMin / step) * step; v <= latMax; v += step) {
+      p = toScreen(v, 0).y; ctx.beginPath(); ctx.moveTo(0, Math.round(p) + 0.5); ctx.lineTo(W, Math.round(p) + 0.5); ctx.stroke();
+      ctx.textAlign = "right"; ctx.textBaseline = "bottom";
+      ctx.fillText(labelNum(Math.abs(v), step) + (v >= 0 ? "°U" : "°S"), W - 8, p - 3);
+    }
+
+    /* titik */
+    var items = visible(), placed = [], bg = css("--map-bg"), lab = css("--map-label");
+    var pts = items.map(function (it) { var s = toScreen(it.lat, it.lng); s.p = it; return s; })
+      .filter(function (s) { return s.x > -20 && s.x < W + 20 && s.y > -20 && s.y < H + 20; });
+    pts.forEach(function (s) {
+      var sel = s.p.id === state.selected;
+      if (sel) {
+        ctx.beginPath(); ctx.arc(s.x, s.y, 14, 0, 6.2832); ctx.strokeStyle = css("--accent"); ctx.lineWidth = 2.5; ctx.stroke();
+      }
+      ctx.beginPath(); ctx.arc(s.x, s.y, 7, 0, 6.2832);
+      ctx.fillStyle = catColor[s.p.cat]; ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = bg; ctx.stroke();
+    });
+    ctx.font = "600 12.5px " + css("--font-body"); ctx.textAlign = "left"; ctx.textBaseline = "middle";
+    pts.sort(function (a, b) { return (b.p.id === state.selected) - (a.p.id === state.selected); });
+    pts.forEach(function (s) {
+      var t = s.p.name, w = ctx.measureText(t).width, r = { x: s.x + 12, y: s.y - 8, w: w, h: 16 };
+      if (r.x + w > W - 6) return;
+      for (var i = 0; i < placed.length; i++) {
+        var o = placed[i];
+        if (r.x < o.x + o.w + 4 && r.x + r.w + 4 > o.x && r.y < o.y + o.h && r.y + r.h > o.y) return;
+      }
+      placed.push(r);
+      ctx.lineWidth = 4; ctx.strokeStyle = bg; ctx.lineJoin = "round"; ctx.strokeText(t, r.x, s.y);
+      ctx.fillStyle = lab; ctx.fillText(t, r.x, s.y);
+    });
+    updateReadout();
+  }
+  function updateReadout() {
+    var r = el("readout");
+    if (state.cursor) {
+      var w = fromScreen(state.cursor.x, state.cursor.y);
+      r.textContent = latOf(w.y).toFixed(5) + ", " + lngOf(w.x).toFixed(5);
+    } else {
+      var c = latOf(state.cy).toFixed(5) + ", " + lngOf(state.cx).toFixed(5);
+      r.textContent = "Tengah: " + c;
+    }
+  }
+
+  /* ---------- interaksi ---------- */
+  function clampZ(z) { return Math.max(MIN_Z, Math.min(MAX_Z, z)); }
+  function zoomAt(px, py, nz) {
+    nz = clampZ(nz);
+    var before = fromScreen(px, py);
+    state.z = nz;
+    var S = scale();
+    state.cx = before.x - (px - state.w / 2) / S;
+    state.cy = before.y - (py - state.h / 2) / S;
+    draw();
+  }
+  function hit(px, py) {
+    var best = null, bd = 16;
+    visible().forEach(function (p) {
+      var s = toScreen(p.lat, p.lng), d = Math.hypot(s.x - px, s.y - py);
+      if (d < bd) { bd = d; best = p; }
+    });
+    return best;
+  }
+  var ptrs = {}, startPt = null, moved = 0, pinch0 = null;
+  function local(e) { var r = canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  canvas.addEventListener("pointerdown", function (e) {
+    canvas.setPointerCapture(e.pointerId);
+    ptrs[e.pointerId] = local(e);
+    var ids = Object.keys(ptrs);
+    if (ids.length === 1) { startPt = local(e); moved = 0; }
+    if (ids.length === 2) { pinch0 = { d: Math.hypot(ptrs[ids[0]].x - ptrs[ids[1]].x, ptrs[ids[0]].y - ptrs[ids[1]].y), z: state.z }; moved = 99; }
+    canvas.classList.add("drag");
+  });
+  canvas.addEventListener("pointermove", function (e) {
+    var cur = local(e);
+    if (!ptrs[e.pointerId]) { state.cursor = cur; canvas.style.cursor = hit(cur.x, cur.y) ? "pointer" : ""; updateReadout(); return; }
+    var ids = Object.keys(ptrs);
+    if (ids.length === 2 && pinch0) {
+      ptrs[e.pointerId] = cur;
+      var a = ptrs[ids[0]], b = ptrs[ids[1]], d = Math.hypot(a.x - b.x, a.y - b.y);
+      zoomAt((a.x + b.x) / 2, (a.y + b.y) / 2, pinch0.z + Math.log2(d / pinch0.d));
+      return;
+    }
+    var prev = ptrs[e.pointerId], S = scale();
+    moved += Math.abs(cur.x - prev.x) + Math.abs(cur.y - prev.y);
+    state.cx -= (cur.x - prev.x) / S; state.cy -= (cur.y - prev.y) / S;
+    ptrs[e.pointerId] = cur; state.cursor = cur;
+    draw();
+  });
+  function endPtr(e) {
+    var was = !!ptrs[e.pointerId];
+    delete ptrs[e.pointerId];
+    if (Object.keys(ptrs).length < 2) pinch0 = null;
+    if (!Object.keys(ptrs).length) canvas.classList.remove("drag");
+    if (was && e.type === "pointerup" && moved < 6 && startPt) {
+      var p = hit(startPt.x, startPt.y);
+      if (p) select(p.id, false);
+      else if (state.selected !== null) { state.selected = null; renderList(); renderDetail(); draw(); }
+    }
+  }
+  canvas.addEventListener("pointerup", endPtr);
+  canvas.addEventListener("pointercancel", endPtr);
+  canvas.addEventListener("pointerleave", function () { state.cursor = null; updateReadout(); });
+  canvas.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    var c = local(e);
+    zoomAt(c.x, c.y, state.z - e.deltaY * 0.0022);
+  }, { passive: false });
+  canvas.addEventListener("keydown", function (e) {
+    var S = scale(), k = 60 / S, handled = true;
+    if (e.key === "ArrowLeft") state.cx -= k; else if (e.key === "ArrowRight") state.cx += k;
+    else if (e.key === "ArrowUp") state.cy -= k; else if (e.key === "ArrowDown") state.cy += k;
+    else if (e.key === "+" || e.key === "=") state.z = clampZ(state.z + 0.5);
+    else if (e.key === "-") state.z = clampZ(state.z - 0.5);
+    else handled = false;
+    if (handled) { e.preventDefault(); draw(); }
+  });
+  el("zin").addEventListener("click", function () { zoomAt(state.w / 2, state.h / 2, state.z + 1); });
+  el("zout").addEventListener("click", function () { zoomAt(state.w / 2, state.h / 2, state.z - 1); });
+  el("zfit").addEventListener("click", function () { fitAll(); draw(); });
+  el("q").addEventListener("input", function (e) { state.q = e.target.value; renderList(); draw(); });
+  el("file").addEventListener("change", function (e) { loadFile(e.target.files[0]); e.target.value = ""; });
+  el("fileLabel").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); el("file").click(); } });
+  el("resetSample").addEventListener("click", function () { setPlaces(SAMPLE, true); setStatus(); });
+
+  /* ---------- saring kecamatan dan template ---------- */
+  function renderKec() {
+    var s = el("kec"); s.textContent = "";
+    var names = KECAMATAN.slice();
+    state.places.forEach(function (p) { if (p.kec && names.indexOf(p.kec) < 0) names.push(p.kec); });
+    names.sort(function (a, b) { return a.localeCompare(b, "id"); });
+    var o = document.createElement("option"); o.value = ""; o.textContent = "Semua kecamatan"; s.appendChild(o);
+    names.forEach(function (n) { var op = document.createElement("option"); op.value = n; op.textContent = "Kec. " + n; s.appendChild(op); });
+    s.value = state.kec || "";
+  }
+  el("kec").addEventListener("change", function (e) { state.kec = e.target.value || null; state.selected = null; renderList(); renderDetail(); draw(); });
+
+  var dl = null;
+  if (window.claude && window.claude.use) {
+    window.claude.use("downloads").then(function (d) { dl = d; if (d && typeof XLSX !== "undefined") el("tpl").hidden = false; }).catch(function () {});
+  }
+  el("tpl").addEventListener("click", function () {
+    if (!dl || typeof XLSX === "undefined") return;
+    var wb = XLSX.utils.book_new();
+    var ws = XLSX.utils.aoa_to_sheet([
+      ["nama", "kategori", "kecamatan", "latitude", "longitude", "alamat"],
+      ["Contoh Toko (hapus baris ini)", "Toko", "Singkil", 2.283, 97.783, "Jl. Contoh No. 1"]
+    ]);
+    ws["!cols"] = [{ wch: 32 }, { wch: 14 }, { wch: 20 }, { wch: 12 }, { wch: 12 }, { wch: 32 }];
+    XLSX.utils.book_append_sheet(wb, ws, "Titik");
+    var ref = XLSX.utils.aoa_to_sheet([["Daftar kecamatan Aceh Singkil"]].concat(KECAMATAN.map(function (k) { return [k]; })));
+    ref["!cols"] = [{ wch: 28 }];
+    XLSX.utils.book_append_sheet(wb, ref, "Kecamatan");
+    var buf = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+    dl.save({ filename: "template-titik-aceh-singkil.xlsx", data: buf }).catch(function (err) {
+      if (err && err.code !== "declined") setStatus("Template tidak bisa diunduh di tampilan ini.", true);
+    });
+  });
+
+  var root = el("root");
+  ["dragenter", "dragover"].forEach(function (n) { root.addEventListener(n, function (e) { e.preventDefault(); document.body.classList.add("drop-on"); }); });
+  ["dragleave", "drop"].forEach(function (n) { root.addEventListener(n, function (e) { e.preventDefault(); if (n === "dragleave" && root.contains(e.relatedTarget)) return; document.body.classList.remove("drop-on"); }); });
+  root.addEventListener("drop", function (e) { var f = e.dataTransfer && e.dataTransfer.files[0]; if (f) loadFile(f); });
+
+  /* ---------- ukuran dan tema ---------- */
+  function resize() {
+    var r = canvas.parentNode.getBoundingClientRect();
+    state.w = Math.max(200, r.width); state.h = Math.max(200, r.height);
+    state.dpr = Math.min(window.devicePixelRatio || 1, 3);
+    canvas.width = Math.round(state.w * state.dpr); canvas.height = Math.round(state.h * state.dpr);
+    draw();
+  }
+  var firstFit = true;
+  if (window.ResizeObserver) new ResizeObserver(function () { var wasFirst = firstFit; resize(); if (wasFirst) { fitAll(); draw(); firstFit = false; } }).observe(canvas.parentNode);
+  else window.addEventListener("resize", resize);
+  if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+  new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+
+  setPlaces(SAMPLE, true);
+  setStatus();
+  resize(); fitAll(); draw();
+})();
+</script>
+
+</html>
