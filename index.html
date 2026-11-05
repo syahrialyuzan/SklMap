@@ -249,6 +249,7 @@ canvas.drag { cursor: grabbing; }
     cx: 0.5, cy: 0.5, z: 10, w: 300, h: 300, dpr: 1, cursor: null
   };
   var catColor = {};
+  var dataLabel = "Data awal dari OpenStreetMap";
   var uploadOK = false; /* hanya pemilik halaman yang boleh memuat Excel */
 
   /* ---------- proyeksi Mercator ---------- */
@@ -344,7 +345,7 @@ canvas.drag { cursor: grabbing; }
     fr.onerror = function () { setStatus("File tidak bisa dibaca. Coba simpan ulang sebagai .xlsx atau .csv.", true); };
     fr.onload = function () {
       try {
-        var wb = XLSX.read(fr.result, { type: "array" });
+        var wb = XLSX.read(fr.result, { type: "array", raw: true });
         var rows = [];
         wb.SheetNames.forEach(function (n) { rows = rows.concat(XLSX.utils.sheet_to_json(wb.Sheets[n], { defval: "" })); });
         var r = parseRows(rows);
@@ -363,7 +364,7 @@ canvas.drag { cursor: grabbing; }
     var b;
     if (msg) { b = document.createElement("span"); b.className = "badge warn"; b.textContent = msg; s.appendChild(b); return; }
     b = document.createElement("span"); b.className = "badge";
-    if (state.isSample) b.textContent = "Data awal dari OpenStreetMap: " + state.places.length + " titik." + (uploadOK ? " Muat Excel Anda untuk memakai data sendiri." : "");
+    if (state.isSample) b.textContent = dataLabel + ": " + state.places.length + " titik." + (uploadOK ? " Muat Excel Anda untuk memakai data sendiri." : "");
     else b.textContent = fname + ": " + count + " titik dimuat";
     s.appendChild(b);
     if (skipped) { var k = document.createElement("span"); k.textContent = skipped + " baris dilewati karena nama atau koordinatnya tidak valid."; s.appendChild(k); }
@@ -812,6 +813,19 @@ canvas.drag { cursor: grabbing; }
   setPlaces(SAMPLE, true);
   setStatus();
   resize(); fitAll(); draw();
+
+  /* Situs biasa: baca daftar titik dari data.csv di folder yang sama; bila tidak ada, pakai data bawaan. */
+  if (TILES_OK && window.fetch && typeof XLSX !== "undefined") {
+    fetch("data.csv", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("no csv"); return r.text(); }).then(function (txt) {
+      var wb = XLSX.read(txt.replace(/^\ufeff/, ""), { type: "string", raw: true });
+      var rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { defval: "" });
+      var r = parseRows(rows);
+      if (!r.items.length) return;
+      dataLabel = "Data dari data.csv";
+      setPlaces(r.items, true);
+      setStatus(null, false, "", 0, r.skipped);
+    }).catch(function () {});
+  }
 })();
 </script>
 
