@@ -177,7 +177,7 @@ canvas.drag { cursor: grabbing; }
       <div class="zoom">
         <button id="zin" type="button" aria-label="Perbesar">+</button>
         <button id="zout" type="button" aria-label="Perkecil">−</button>
-        <button id="zfit" type="button" aria-label="Tampilkan semua titik" style="font-size:13px">Semua</button>
+        <button id="zfit" type="button" aria-label="Tampilkan semua titik" style="font-size:10px;letter-spacing:-0.01em;padding:0">Semua</button>
         <button id="base" type="button" hidden style="font-size:12px;width:auto;padding:0 10px" aria-label="Ganti latar peta">Satelit</button>
       </div>
       <div class="detail" id="detail" hidden></div>
@@ -492,15 +492,16 @@ canvas.drag { cursor: grabbing; }
     ctx.lineWidth = 1; ctx.strokeStyle = sat ? "rgba(255,255,255,0.3)" : css("--map-grid"); ctx.fillStyle = sat ? "#fff" : css("--map-label");
     ctx.shadowColor = sat ? "rgba(0,0,0,0.85)" : "transparent"; ctx.shadowBlur = sat ? 3 : 0;
     ctx.font = "11px " + css("--font-mono");
+    var bm = sat ? 32 : 4; /* di mode satelit, sisakan ruang untuk kredit citra di tepi bawah */
     var v, p;
     for (v = Math.ceil(lngMin / step) * step; v <= lngMax; v += step) {
       p = toScreen(0, v).x; ctx.beginPath(); ctx.moveTo(Math.round(p) + 0.5, 0); ctx.lineTo(Math.round(p) + 0.5, H); ctx.stroke();
-      ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText(labelNum(v, step) + "°T", p + 4, H - 4);
+      ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText(labelNum(v, step) + "°T", p + 4, H - bm);
     }
     for (v = Math.ceil(latMin / step) * step; v <= latMax; v += step) {
       p = toScreen(v, 0).y; ctx.beginPath(); ctx.moveTo(0, Math.round(p) + 0.5); ctx.lineTo(W, Math.round(p) + 0.5); ctx.stroke();
       ctx.textAlign = "right"; ctx.textBaseline = "bottom";
-      ctx.fillText(labelNum(Math.abs(v), step) + (v >= 0 ? "°U" : "°S"), W - 8, p - 3);
+      if (p - 3 < H - bm - 12) ctx.fillText(labelNum(Math.abs(v), step) + (v >= 0 ? "°U" : "°S"), W - 8, p - 3);
     }
 
     ctx.shadowBlur = 0; ctx.shadowColor = "transparent";
