@@ -127,6 +127,11 @@ canvas.drag { cursor: grabbing; }
 .close { position: absolute; top: 6px; right: 6px; width: 32px; min-height: 32px; padding: 0; border: 0; background: transparent; font-size: 20px; }
 
 .help { color: var(--muted); font-size: 13px; margin: 0; }
+.detail.hasphoto { flex-direction: row; align-items: flex-start; max-width: 540px; }
+.dbody { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.dphoto { flex: 0 0 120px; width: 120px; height: 120px; border-radius: 8px; overflow: hidden; background: var(--bg); border: 1px solid var(--line); display: block; }
+.dphoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 520px) { .detail.hasphoto { flex-direction: column; } .dphoto { width: 100%; height: 150px; flex: 0 0 auto; } }
 .help a { color: var(--accent); }
 .attr.road { color: #1d2b27; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95); }
 .attr { position: absolute; right: 6px; bottom: 4px; max-width: 78%; text-align: right; font: 10px/1.25 var(--font-body); color: #fff; text-shadow: 0 0 3px rgba(0, 0, 0, 0.95); pointer-events: none; }
@@ -192,11 +197,11 @@ canvas.drag { cursor: grabbing; }
 
   <details class="fmt" id="fmt" hidden>
     <summary>Format tabel Excel yang dibaca</summary>
-    <p style="margin:8px 0 0">Baris pertama berisi judul kolom. Kolom <code>nama</code>, <code>latitude</code>, dan <code>longitude</code> wajib ada. Kolom <code>kategori</code>, <code>kecamatan</code>, dan <code>alamat</code> boleh dikosongkan. Kecamatan yang kosong diisi otomatis dari koordinatnya. Judul <code>lat</code>, <code>lng</code>, <code>lon</code>, <code>jenis</code>, dan <code>name</code> juga dikenali. Koordinat dengan koma desimal (3,5952) ikut terbaca.</p>
+    <p style="margin:8px 0 0">Baris pertama berisi judul kolom. Kolom <code>nama</code>, <code>latitude</code>, dan <code>longitude</code> wajib ada. Kolom <code>kategori</code>, <code>kecamatan</code>, <code>alamat</code>, dan <code>foto</code> boleh dikosongkan. Isi <code>foto</code> dengan alamat gambar (https://...) atau nama file di repositori, misalnya <code>foto/toko.jpg</code>. Kecamatan yang kosong diisi otomatis dari koordinatnya. Judul <code>lat</code>, <code>lng</code>, <code>lon</code>, <code>jenis</code>, dan <code>name</code> juga dikenali. Koordinat dengan koma desimal (3,5952) ikut terbaca.</p>
     <div class="scroll">
       <table>
-        <thead><tr><th>nama</th><th>kategori</th><th>kecamatan</th><th>latitude</th><th>longitude</th><th>alamat</th></tr></thead>
-        <tbody><tr><td>Toko Maju Jaya</td><td>Toko</td><td>Singkil</td><td>2.2830</td><td>97.7830</td><td>Jl. Contoh No. 1</td></tr></tbody>
+        <thead><tr><th>nama</th><th>kategori</th><th>kecamatan</th><th>latitude</th><th>longitude</th><th>alamat</th><th>foto</th></tr></thead>
+        <tbody><tr><td>Toko Maju Jaya</td><td>Toko</td><td>Singkil</td><td>2.2830</td><td>97.7830</td><td>Jl. Contoh No. 1</td><td>foto/contoh.jpg</td></tr></tbody>
       </table>
     </div>
   </details>
@@ -281,7 +286,7 @@ canvas.drag { cursor: grabbing; }
     cats.forEach(function (c, i) { catColor[c] = PALETTE[i % PALETTE.length]; });
   }
   function setPlaces(list, isSample) {
-    state.places = list.map(function (p, i) { return { id: i, name: p.name, cat: p.cat || "Lainnya", kec: normKec(p.kec) || kecOf(p.lat, p.lng), lat: p.lat, lng: p.lng, addr: p.addr || "" }; });
+    state.places = list.map(function (p, i) { return { id: i, name: p.name, cat: p.cat || "Lainnya", kec: normKec(p.kec) || kecOf(p.lat, p.lng), lat: p.lat, lng: p.lng, addr: p.addr || "", foto: p.foto || "" }; });
     state.isSample = !!isSample;
     state.q = ""; state.cat = null; state.kec = null; state.selected = null;
     el("q").value = "";
@@ -307,6 +312,7 @@ canvas.drag { cursor: grabbing; }
     lng: ["longitude", "lng", "lon", "long", "bujur"],
     addr: ["alamat", "address", "keterangan"],
     kec: ["kecamatan", "kec", "distrik", "district"],
+    foto: ["foto", "gambar", "photo", "image", "fotourl", "linkfoto"],
     both: ["koordinat", "coordinates", "coordinate", "latlng", "latlong"]
   };
   function pick(row, names) {
@@ -334,8 +340,8 @@ canvas.drag { cursor: grabbing; }
       }
       var la = num(lat), ln = num(lng);
       if (!name || !isFinite(la) || !isFinite(ln) || Math.abs(la) > 90 || Math.abs(ln) > 180) { skipped++; return; }
-      var cat = pick(row, KEYS.cat), addr = pick(row, KEYS.addr), kec = pick(row, KEYS.kec);
-      out.push({ name: String(name).trim(), cat: cat ? String(cat).trim() : "Lainnya", kec: kec ? String(kec).trim().replace(/^kec(amatan|\.)?\s+/i, "") : "", lat: la, lng: ln, addr: addr ? String(addr).trim() : "" });
+      var cat = pick(row, KEYS.cat), addr = pick(row, KEYS.addr), kec = pick(row, KEYS.kec), foto = pick(row, KEYS.foto);
+      out.push({ name: String(name).trim(), cat: cat ? String(cat).trim() : "Lainnya", kec: kec ? String(kec).trim().replace(/^kec(amatan|\.)?\s+/i, "") : "", lat: la, lng: ln, addr: addr ? String(addr).trim() : "", foto: foto ? String(foto).trim() : "" });
     });
     return { items: out, skipped: skipped };
   }
@@ -431,6 +437,20 @@ canvas.drag { cursor: grabbing; }
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
     else fallback();
   }
+  function photoOK(u) { return /^(https?:)?\/\//i.test(u) || !/^[a-z][a-z0-9+.-]*:/i.test(u); }
+  function addPhoto(box, p) {
+    if (!p.foto || !photoOK(p.foto)) return;
+    var kids = Array.prototype.slice.call(box.children);
+    var body = document.createElement("div"); body.className = "dbody";
+    kids.slice(1).forEach(function (k) { body.appendChild(k); });
+    var a = document.createElement("a"); a.className = "dphoto"; a.href = p.foto; a.target = "_blank"; a.rel = "noopener noreferrer"; a.title = "Buka foto";
+    var img = document.createElement("img"); img.alt = "Foto " + p.name; img.loading = "lazy";
+    img.onerror = function () { box.classList.remove("hasphoto"); if (a.parentNode) a.parentNode.removeChild(a); };
+    img.src = p.foto;
+    a.appendChild(img);
+    box.appendChild(a); box.appendChild(body);
+    box.classList.add("hasphoto");
+  }
   function renderDetail() {
     var box = el("detail"); box.textContent = "";
     var p = state.places[state.selected];
@@ -454,6 +474,7 @@ canvas.drag { cursor: grabbing; }
     g.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(p.lat + "," + p.lng);
     g.textContent = "Buka di Google Maps";
     row.appendChild(cp); row.appendChild(g); box.appendChild(row);
+    addPhoto(box, p);
   }
 
   /* ---------- tampilan ---------- */
@@ -786,8 +807,8 @@ canvas.drag { cursor: grabbing; }
     if (!dl || typeof XLSX === "undefined") return;
     var wb = XLSX.utils.book_new();
     var ws = XLSX.utils.aoa_to_sheet([
-      ["nama", "kategori", "kecamatan", "latitude", "longitude", "alamat"],
-      ["Contoh Toko (hapus baris ini)", "Toko", "Singkil", 2.283, 97.783, "Jl. Contoh No. 1"]
+      ["nama", "kategori", "kecamatan", "latitude", "longitude", "alamat", "foto"],
+      ["Contoh Toko (hapus baris ini)", "Toko", "Singkil", 2.283, 97.783, "Jl. Contoh No. 1", "foto/contoh.jpg"]
     ]);
     ws["!cols"] = [{ wch: 32 }, { wch: 14 }, { wch: 20 }, { wch: 12 }, { wch: 12 }, { wch: 32 }];
     XLSX.utils.book_append_sheet(wb, ws, "Titik");
