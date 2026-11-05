@@ -500,8 +500,9 @@ canvas.drag { cursor: grabbing; }
     }
     for (v = Math.ceil(latMin / step) * step; v <= latMax; v += step) {
       p = toScreen(v, 0).y; ctx.beginPath(); ctx.moveTo(0, Math.round(p) + 0.5); ctx.lineTo(W, Math.round(p) + 0.5); ctx.stroke();
-      ctx.textAlign = "right"; ctx.textBaseline = "bottom";
-      if (p - 3 < H - bm - 12) ctx.fillText(labelNum(Math.abs(v), step) + (v >= 0 ? "°U" : "°S"), W - 8, p - 3);
+      ctx.textAlign = "left"; ctx.textBaseline = "bottom";
+      /* tepi kiri, kecuali di bawah kotak koordinat kursor (kiri atas) dan di area kredit (bawah) */
+      if (p > 54 && p - 3 < H - bm - 12) ctx.fillText(labelNum(Math.abs(v), step) + (v >= 0 ? "°U" : "°S"), 8, p - 3);
     }
 
     ctx.shadowBlur = 0; ctx.shadowColor = "transparent";
