@@ -132,6 +132,19 @@ canvas.drag { cursor: grabbing; }
 .dphoto { flex: 0 0 120px; width: 120px; height: 120px; border-radius: 8px; overflow: hidden; background: var(--bg); border: 1px solid var(--line); display: block; }
 .dphoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 520px) { .detail.hasphoto { flex-direction: column; } .dphoto { width: 100%; height: 150px; flex: 0 0 auto; } }
+.ms { position: relative; }
+.ms .ms-btn { display: block; width: 100%; min-height: 40px; padding: 0 34px 0 12px; text-align: left; font: 15px var(--font-body); border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; position: relative; }
+.ms .ms-btn::after { content: ""; position: absolute; right: 13px; top: 50%; width: 7px; height: 7px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: translateY(-70%) rotate(45deg); }
+.ms .ms-btn[aria-expanded="true"]::after { transform: translateY(-30%) rotate(-135deg); }
+.ms-panel { position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 20; display: flex; flex-direction: column; max-height: min(360px, 55vh); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); }
+.ms-actions { display: flex; justify-content: flex-end; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.ms-actions button { min-height: 30px; padding: 0 10px; font-size: 13px; }
+.ms-list { overflow-y: auto; padding: 4px; }
+.ms-opt { display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+.ms-opt:hover { background: var(--bg); }
+.ms-opt input { width: 18px; height: 18px; flex: none; accent-color: var(--accent); margin: 0; }
+.ms-opt .nm { min-width: 0; overflow-wrap: anywhere; }
+.ms-opt .ct { margin-left: auto; padding-left: 8px; font: 12.5px var(--font-mono); color: var(--muted); }
 .help a { color: var(--accent); }
 .attr.road { color: #1d2b27; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95); }
 .attr { position: absolute; right: 6px; bottom: 4px; max-width: 78%; text-align: right; font: 10px/1.25 var(--font-body); color: #fff; text-shadow: 0 0 3px rgba(0, 0, 0, 0.95); pointer-events: none; }
@@ -172,7 +185,13 @@ canvas.drag { cursor: grabbing; }
   <div class="app">
     <aside class="side">
       <input id="q" class="search" type="search" placeholder="Cari nama, kategori, atau alamat" aria-label="Cari tempat" autocomplete="off">
-      <select id="cat" class="search" aria-label="Saring kategori"></select>
+      <div class="ms" id="catms">
+        <button type="button" class="ms-btn" id="catbtn" aria-haspopup="true" aria-expanded="false" aria-label="Saring kategori"></button>
+        <div class="ms-panel" id="catpanel" hidden>
+          <div class="ms-actions"><button type="button" id="catclear">Hapus pilihan</button></div>
+          <div class="ms-list" id="catlist" role="group" aria-label="Saring kategori"></div>
+        </div>
+      </div>
       <select id="kec" class="search" aria-label="Saring kecamatan"></select>
             <ul class="list" id="list"></ul>
     </aside>
@@ -251,7 +270,7 @@ canvas.drag { cursor: grabbing; }
   var el = function (id) { return document.getElementById(id); };
   var canvas = el("map"), ctx = canvas.getContext("2d");
   var state = {
-    places: [], isSample: true, q: "", cat: null, kec: null, base: "grid", selected: null,
+    places: [], isSample: true, q: "", cats: [], kec: null, base: "grid", selected: null,
     cx: 0.5, cy: 0.5, z: 10, w: 300, h: 300, dpr: 1, cursor: null
   };
   var catColor = {};
@@ -288,7 +307,7 @@ canvas.drag { cursor: grabbing; }
   function setPlaces(list, isSample) {
     state.places = list.map(function (p, i) { return { id: i, name: p.name, cat: p.cat || "Lainnya", kec: normKec(p.kec) || kecOf(p.lat, p.lng), lat: p.lat, lng: p.lng, addr: p.addr || "", foto: p.foto || "" }; });
     state.isSample = !!isSample;
-    state.q = ""; state.cat = null; state.kec = null; state.selected = null;
+    state.q = ""; state.cats = []; state.kec = null; state.selected = null;
     el("q").value = "";
     assignColors();
     renderKec(); renderChips(); renderList(); renderDetail(); fitAll(); draw();
@@ -296,7 +315,7 @@ canvas.drag { cursor: grabbing; }
   function visible() {
     var q = state.q.trim().toLowerCase();
     return state.places.filter(function (p) {
-      if (state.cat && p.cat !== state.cat) return false;
+      if (state.cats.length && state.cats.indexOf(p.cat) < 0) return false;
       if (state.kec && p.kec !== state.kec) return false;
       if (!q) return true;
       return (p.name + " " + p.cat + " " + p.kec + " " + p.addr).toLowerCase().indexOf(q) >= 0;
@@ -379,15 +398,31 @@ canvas.drag { cursor: grabbing; }
   }
 
   /* ---------- panel kiri ---------- */
+  function msLabel() {
+    var b = el("catbtn"), n = state.cats.length;
+    b.textContent = n === 0 ? "Semua kategori (" + state.places.length + ")" : (n === 1 ? state.cats[0] : n + " kategori dipilih");
+  }
+  function msApply() { state.selected = null; msLabel(); renderList(); renderDetail(); draw(); }
   function renderChips() {
-    var s = el("cat"); s.textContent = "";
+    var box = el("catlist"); box.textContent = "";
     var counts = {};
     state.places.forEach(function (p) { counts[p.cat] = (counts[p.cat] || 0) + 1; });
-    var o = document.createElement("option"); o.value = ""; o.textContent = "Semua kategori (" + state.places.length + ")"; s.appendChild(o);
-    Object.keys(counts).sort(function (a, b) { return a.localeCompare(b, "id"); }).forEach(function (c) {
-      var op = document.createElement("option"); op.value = c; op.textContent = c + " (" + counts[c] + ")"; s.appendChild(op);
+    var names = Object.keys(counts).sort(function (a, b) { return a.localeCompare(b, "id"); });
+    names.forEach(function (c) {
+      var lab = document.createElement("label"); lab.className = "ms-opt";
+      var cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = state.cats.indexOf(c) >= 0;
+      cb.addEventListener("change", function () {
+        var k = state.cats.indexOf(c);
+        if (cb.checked && k < 0) state.cats.push(c); else if (!cb.checked && k >= 0) state.cats.splice(k, 1);
+        msApply();
+      });
+      var d = document.createElement("span"); d.className = "dot"; d.style.background = catColor[c] || "#7b8a85";
+      var nm = document.createElement("span"); nm.className = "nm"; nm.textContent = c;
+      var ct = document.createElement("span"); ct.className = "ct"; ct.textContent = counts[c] || 0;
+      lab.appendChild(cb); lab.appendChild(d); lab.appendChild(nm); lab.appendChild(ct);
+      box.appendChild(lab);
     });
-    s.value = state.cat || "";
+    msLabel();
   }
   function fmt(n) { return n.toFixed(6); }
   function renderList() {
@@ -780,7 +815,14 @@ canvas.drag { cursor: grabbing; }
   }
   el("kec").addEventListener("change", function (e) { state.kec = e.target.value || null; state.selected = null; if (state.kec) fitKec(state.kec); else fitAll(); renderList(); renderDetail(); draw(); });
 
-  el("cat").addEventListener("change", function (e) { state.cat = e.target.value || null; state.selected = null; renderList(); renderDetail(); draw(); });
+  (function () {
+    var btn = el("catbtn"), panel = el("catpanel"), wrap = el("catms");
+    function close(focus) { panel.hidden = true; btn.setAttribute("aria-expanded", "false"); if (focus) btn.focus(); }
+    btn.addEventListener("click", function () { var open = panel.hidden; panel.hidden = !open; btn.setAttribute("aria-expanded", String(open)); });
+    el("catclear").addEventListener("click", function () { state.cats = []; renderChips(); msApply(); });
+    document.addEventListener("pointerdown", function (e) { if (!panel.hidden && !wrap.contains(e.target)) close(false); });
+    wrap.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) { e.stopPropagation(); close(true); } });
+  })();
 
   var dl = null;
   function refreshTools() {
