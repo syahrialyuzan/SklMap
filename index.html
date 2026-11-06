@@ -145,6 +145,7 @@ canvas.drag { cursor: grabbing; }
 .ms-opt input { width: 18px; height: 18px; flex: none; accent-color: var(--accent); margin: 0; }
 .ms-opt .nm { min-width: 0; overflow-wrap: anywhere; }
 .ms-opt .ct { margin-left: auto; padding-left: 8px; font: 12.5px var(--font-mono); color: var(--muted); }
+#loc[aria-pressed="true"] { background: #2563eb; border-color: #2563eb; color: #fff; }
 .help a { color: var(--accent); }
 .attr.road { color: #1d2b27; text-shadow: 0 0 3px rgba(255, 255, 255, 0.95); }
 .attr { position: absolute; right: 6px; bottom: 4px; max-width: 78%; text-align: right; font: 10px/1.25 var(--font-body); color: #fff; text-shadow: 0 0 3px rgba(0, 0, 0, 0.95); pointer-events: none; }
@@ -204,6 +205,7 @@ canvas.drag { cursor: grabbing; }
         <button id="zout" type="button" aria-label="Perkecil">−</button>
         <button id="zfit" type="button" aria-label="Tampilkan semua titik" style="font-size:10px;letter-spacing:-0.01em;padding:0">Semua</button>
         <button id="base" type="button" hidden style="font-size:12px;width:auto;padding:0 10px" aria-label="Ganti latar peta">Satelit</button>
+        <button id="loc" type="button" hidden aria-pressed="false" style="font-size:12px;width:auto;padding:0 10px" aria-label="Tampilkan lokasi saya">Lokasi saya</button>
       </div>
       <div class="detail" id="detail" hidden></div>
       <div class="attr" id="attr" hidden>Citra: Esri, Maxar, Earthstar Geographics, dan komunitas pengguna GIS</div>
@@ -264,13 +266,14 @@ canvas.drag { cursor: grabbing; }
   var MIN_Z = 2, MAX_Z = 19;
   /* Citra satelit dimuat dari server Esri; hanya jalan di situs biasa, tidak di dalam halaman Claude. */
   var TILES_OK = !(window.claude && window.claude.use);
+  var GEO_OK = !!navigator.geolocation && TILES_OK; /* di dalam halaman Claude, izin lokasi ditolak */
   var TILE_URLS = { sat: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", road: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" };
   var TILE_MAXZ = 17;
 
   var el = function (id) { return document.getElementById(id); };
   var canvas = el("map"), ctx = canvas.getContext("2d");
   var state = {
-    places: [], isSample: true, q: "", cats: [], kec: null, base: "grid", selected: null,
+    places: [], isSample: true, q: "", cats: [], kec: null, me: null, watch: null, base: "grid", selected: null,
     cx: 0.5, cy: 0.5, z: 10, w: 300, h: 300, dpr: 1, cursor: null
   };
   var catColor = {};
@@ -480,6 +483,20 @@ canvas.drag { cursor: grabbing; }
     box.appendChild(a); box.appendChild(body);
     box.classList.add("hasphoto");
   }
+  function distText(la1, ln1, la2, ln2) {
+    var R = 6371000, rad = Math.PI / 180;
+    var dLa = (la2 - la1) * rad, dLn = (ln2 - ln1) * rad;
+    var a = Math.sin(dLa / 2) * Math.sin(dLa / 2) + Math.cos(la1 * rad) * Math.cos(la2 * rad) * Math.sin(dLn / 2) * Math.sin(dLn / 2);
+    var m = 2 * R * Math.asin(Math.min(1, Math.sqrt(a)));
+    return m < 1000 ? Math.round(m) + " m" : (m / 1000).toFixed(1).replace(".", ",") + " km";
+  }
+  function updateDist() {
+    var d = el("dist"); if (!d) return;
+    var p = state.places[state.selected];
+    if (!p || !state.me) { d.hidden = true; return; }
+    d.hidden = false;
+    d.textContent = "Jarak dari lokasi Anda: " + distText(state.me.lat, state.me.lng, p.lat, p.lng) + " (garis lurus)";
+  }
   function renderDetail() {
     var box = el("detail"); box.textContent = "";
     var p = state.places[state.selected];
@@ -494,6 +511,7 @@ canvas.drag { cursor: grabbing; }
     meta.appendChild(d); meta.appendChild(m);
     box.appendChild(x); box.appendChild(h); box.appendChild(meta);
     if (p.addr) { var a = document.createElement("p"); a.className = "addr"; a.textContent = p.addr; box.appendChild(a); }
+    var dist = document.createElement("p"); dist.className = "addr"; dist.id = "dist"; dist.hidden = true; box.appendChild(dist); updateDist();
     var text = fmt(p.lat) + ", " + fmt(p.lng);
     var c = document.createElement("div"); c.className = "coords"; c.textContent = text; box.appendChild(c);
     var row = document.createElement("div"); row.className = "actions";
@@ -585,7 +603,21 @@ canvas.drag { cursor: grabbing; }
       ctx.lineWidth = 4; ctx.strokeStyle = bg; ctx.lineJoin = "round"; ctx.strokeText(t, r.x, s.y);
       ctx.fillStyle = lab; ctx.fillText(t, r.x, s.y);
     });
+    drawMe();
     updateReadout();
+  }
+  function drawMe() {
+    var m = state.me; if (!m) return;
+    var s = toScreen(m.lat, m.lng);
+    var mpp = 156543.03392 * Math.cos(m.lat * Math.PI / 180) / Math.pow(2, state.z);
+    var r = m.acc / mpp;
+    if (r > 10) {
+      ctx.beginPath(); ctx.arc(s.x, s.y, Math.min(r, 4000), 0, 6.2832);
+      ctx.fillStyle = "rgba(37, 99, 235, 0.14)"; ctx.fill();
+      ctx.lineWidth = 1; ctx.strokeStyle = "rgba(37, 99, 235, 0.55)"; ctx.stroke();
+    }
+    ctx.beginPath(); ctx.arc(s.x, s.y, 10, 0, 6.2832); ctx.fillStyle = "#ffffff"; ctx.fill();
+    ctx.beginPath(); ctx.arc(s.x, s.y, 7, 0, 6.2832); ctx.fillStyle = "#2563eb"; ctx.fill();
   }
   function updateReadout() {
     var r = el("readout");
@@ -858,6 +890,41 @@ canvas.drag { cursor: grabbing; }
       if (err && err.code !== "declined") setStatus("Template tidak bisa diunduh di tampilan ini.", true);
     });
   });
+
+  /* ---------- lokasi pengguna ---------- */
+  if (GEO_OK) {
+    var locBtn = el("loc"), first = true;
+    locBtn.hidden = false;
+    function geoOff() {
+      if (state.watch !== null) { navigator.geolocation.clearWatch(state.watch); state.watch = null; }
+      state.me = null; first = true;
+      locBtn.setAttribute("aria-pressed", "false"); locBtn.textContent = "Lokasi saya";
+      updateDist(); draw();
+    }
+    function geoOn() {
+      if (!window.isSecureContext) { setStatus("Lokasi hanya bisa dipakai lewat alamat https.", true); return; }
+      locBtn.textContent = "Mencari…"; locBtn.setAttribute("aria-pressed", "true");
+      state.watch = navigator.geolocation.watchPosition(function (pos) {
+        state.me = { lat: pos.coords.latitude, lng: pos.coords.longitude, acc: pos.coords.accuracy || 0 };
+        locBtn.textContent = "Lokasi saya";
+        if (first) {
+          first = false;
+          if (kecOf(state.me.lat, state.me.lng)) {
+            state.cx = mx(state.me.lng); state.cy = my(state.me.lat); state.z = Math.max(state.z, 14);
+          } else {
+            setStatus("Lokasi Anda berada di luar wilayah Kabupaten Aceh Singkil, jadi peta tidak digeser.", true);
+          }
+        }
+        updateDist(); draw();
+      }, function (err) {
+        geoOff();
+        setStatus(err && err.code === 1 ? "Izin lokasi ditolak. Aktifkan izin lokasi untuk situs ini di pengaturan browser, lalu coba lagi."
+          : err && err.code === 2 ? "Lokasi tidak tersedia. Nyalakan GPS atau layanan lokasi perangkat."
+          : "Pencarian lokasi kehabisan waktu. Coba lagi di tempat yang lebih terbuka.", true);
+      }, { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 });
+    }
+    locBtn.addEventListener("click", function () { if (state.watch !== null) geoOff(); else geoOn(); });
+  }
 
   var root = el("root");
   ["dragenter", "dragover"].forEach(function (n) { root.addEventListener(n, function (e) { e.preventDefault(); document.body.classList.add("drop-on"); }); });
