@@ -193,7 +193,7 @@ canvas.drag { cursor: grabbing; }
 
   <p class="help" id="gridhelp">Latar peta berupa grid garis lintang dan bujur, tanpa gambar jalan. Untuk melihat jalan dan petunjuk arah, buka titik yang dipilih di Google Maps.</p>
 
-  <p class="help">Data awal: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>, lisensi ODbL, diambil 5 November 2026. Batas kecamatan juga dari OSM dan disederhanakan, jadi tepinya hanya perkiraan. Data OSM di wilayah ini belum lengkap, dan batas desa belum tersedia.</p>
+  <p class="help">Batas kecamatan dan data bawaan: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>, lisensi ODbL, diambil 5 November 2026. Batas disederhanakan, jadi tepinya hanya perkiraan, dan batas desa belum tersedia. Titik yang tampil di peta berasal dari data.csv bila file itu ada.</p>
 
   <details class="fmt" id="fmt" hidden>
     <summary>Format tabel Excel yang dibaca</summary>
@@ -756,7 +756,7 @@ canvas.drag { cursor: grabbing; }
   if (TILES_OK) {
     state.base = "road"; try { var sv = localStorage.getItem("peta-base"); if (sv === "sat" || sv === "road") state.base = sv; } catch (e) {}
     el("base").hidden = false; syncBase();
-    el("gridhelp").textContent = "Latar peta berupa grid garis lintang dan bujur. Tombol di pojok kanan atas peta berganti antara Map (peta topografi Esri dengan jalan, sungai, danau, dan landmark) dan Satelit. Untuk petunjuk arah, buka titik yang dipilih di Google Maps.";
+    el("gridhelp").textContent = "Tombol di pojok kanan atas peta berganti antara Map (peta topografi Esri dengan jalan, sungai, danau, dan landmark) dan Satelit. Untuk petunjuk arah, buka titik yang dipilih di Google Maps.";
     el("base").addEventListener("click", function () {
       state.base = state.base === "road" ? "sat" : "road";
       try { localStorage.setItem("peta-base", state.base); } catch (e) {}
