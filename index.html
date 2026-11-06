@@ -172,9 +172,9 @@ canvas.drag { cursor: grabbing; }
   <div class="app">
     <aside class="side">
       <input id="q" class="search" type="search" placeholder="Cari nama, kategori, atau alamat" aria-label="Cari tempat" autocomplete="off">
+      <select id="cat" class="search" aria-label="Saring kategori"></select>
       <select id="kec" class="search" aria-label="Saring kecamatan"></select>
-      <div class="chips" id="chips" role="group" aria-label="Saring kategori"></div>
-      <ul class="list" id="list"></ul>
+            <ul class="list" id="list"></ul>
     </aside>
 
     <section class="mapwrap" aria-label="Peta koordinat">
@@ -380,20 +380,14 @@ canvas.drag { cursor: grabbing; }
 
   /* ---------- panel kiri ---------- */
   function renderChips() {
-    var box = el("chips"); box.textContent = "";
+    var s = el("cat"); s.textContent = "";
     var counts = {};
     state.places.forEach(function (p) { counts[p.cat] = (counts[p.cat] || 0) + 1; });
-    function mk(label, cat, n, color) {
-      var b = document.createElement("button");
-      b.type = "button"; b.className = "chip";
-      b.setAttribute("aria-pressed", String(state.cat === cat));
-      if (color) { var d = document.createElement("span"); d.className = "dot"; d.style.background = color; b.appendChild(d); }
-      b.appendChild(document.createTextNode(label + " " + n));
-      b.addEventListener("click", function () { state.cat = cat; renderChips(); renderList(); draw(); });
-      box.appendChild(b);
-    }
-    mk("Semua", null, state.places.length, null);
-    Object.keys(counts).sort(function (a, b) { return a.localeCompare(b, "id"); }).forEach(function (c) { mk(c, c, counts[c], catColor[c]); });
+    var o = document.createElement("option"); o.value = ""; o.textContent = "Semua kategori (" + state.places.length + ")"; s.appendChild(o);
+    Object.keys(counts).sort(function (a, b) { return a.localeCompare(b, "id"); }).forEach(function (c) {
+      var op = document.createElement("option"); op.value = c; op.textContent = c + " (" + counts[c] + ")"; s.appendChild(op);
+    });
+    s.value = state.cat || "";
   }
   function fmt(n) { return n.toFixed(6); }
   function renderList() {
@@ -785,6 +779,8 @@ canvas.drag { cursor: grabbing; }
     s.value = state.kec || "";
   }
   el("kec").addEventListener("change", function (e) { state.kec = e.target.value || null; state.selected = null; if (state.kec) fitKec(state.kec); else fitAll(); renderList(); renderDetail(); draw(); });
+
+  el("cat").addEventListener("change", function (e) { state.cat = e.target.value || null; state.selected = null; renderList(); renderDetail(); draw(); });
 
   var dl = null;
   function refreshTools() {
