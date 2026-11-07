@@ -206,6 +206,7 @@ canvas.drag { cursor: grabbing; }
         <button id="zfit" type="button" aria-label="Tampilkan semua titik" style="font-size:10px;letter-spacing:-0.01em;padding:0">Semua</button>
         <button id="base" type="button" hidden style="font-size:12px;width:auto;padding:0 10px" aria-label="Ganti latar peta">Satelit</button>
         <button id="loc" type="button" hidden aria-pressed="false" style="font-size:12px;width:auto;padding:0 10px" aria-label="Tampilkan lokasi saya">Lokasi saya</button>
+        <button id="copyloc" type="button" hidden style="font-size:12px;width:auto;padding:0 10px" aria-label="Salin koordinat lokasi saya">Salin lokasi</button>
       </div>
       <div class="detail" id="detail" hidden></div>
       <div class="attr" id="attr" hidden>Citra: Esri, Maxar, Earthstar Geographics, dan komunitas pengguna GIS</div>
@@ -897,7 +898,7 @@ canvas.drag { cursor: grabbing; }
     locBtn.hidden = false;
     function geoOff() {
       if (state.watch !== null) { navigator.geolocation.clearWatch(state.watch); state.watch = null; }
-      state.me = null; first = true;
+      state.me = null; first = true; el("copyloc").hidden = true;
       locBtn.setAttribute("aria-pressed", "false"); locBtn.textContent = "Lokasi saya";
       updateDist(); draw();
     }
@@ -906,6 +907,7 @@ canvas.drag { cursor: grabbing; }
       locBtn.textContent = "Mencari…"; locBtn.setAttribute("aria-pressed", "true");
       state.watch = navigator.geolocation.watchPosition(function (pos) {
         state.me = { lat: pos.coords.latitude, lng: pos.coords.longitude, acc: pos.coords.accuracy || 0 };
+        el("copyloc").hidden = false;
         locBtn.textContent = "Lokasi saya";
         if (first) {
           first = false;
@@ -923,6 +925,7 @@ canvas.drag { cursor: grabbing; }
           : "Pencarian lokasi kehabisan waktu. Coba lagi di tempat yang lebih terbuka.", true);
       }, { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 });
     }
+    el("copyloc").addEventListener("click", function (e) { if (state.me) copyText(fmt(state.me.lat) + ", " + fmt(state.me.lng), e.currentTarget); });
     locBtn.addEventListener("click", function () { if (state.watch !== null) geoOff(); else geoOn(); });
   }
 
