@@ -1,0 +1,324 @@
+﻿id_ruas,kelas,nama_ruas,fungsi,kecamatan,desa,pangkal,ujung,panjang_km,lebar_m,lintas,permukaan,baik_km,sedang_km,rusak_ringan_km,rusak_berat_km,penanganan,tahun
+N01,Nasional,Batas Subulussalam - Lipat Kajang,Arteri Primer,Lipat Kajang,Lipat Kajang,Batas Kota Subulussalam/Kab. Aceh Singkil,Desa Lipat Kajang,23.13,,Lintas Barat,Aspal,,,,,,2017
+N02,Nasional,Bts. Kab. Aceh Selatan - Kuala Baru - Singkil,Arteri Primer,Kuala Baru - Singkil Utara,Kuala Baru - Kp. Baru,Batas Kab. Aceh Selatan,Sp. Tiga Kp. Baru (Sp. Koreng),45.52,,Lintas Barat,Aspal,,,,,,2017
+N03,Nasional,Lipat Kajang - Bts. Sumut,Arteri Primer,Lipat Kajang,Lipat Kajang,Desa Lipat Kajang,Batas Provinsi Sumut,45.48,,Lintas Barat,Aspal,,,,,,2017
+N04,Nasional,Pelabuhan Singkil-Telaga Bakti,Arteri Primer,Kuala Baru - Singkil Utara,Kuala Baru - Kp. Baru,Batas Kab. Aceh Selatan,Sp. Tiga Kp. Baru (Sp. Koreng),45.52,,Lintas Barat,Aspal,,,,,,2017
+P01,Provinsi,Siompin - Keras - Batas Prov. Sumut,Kolektor Primer,Suro,Siompin - Keras,Sp. Jalan Nasional  Ds. Siompin,Batas Prov. Sumut / Sibagindar Pakpak Bharat,7.34,,,,,,,,,2017
+P02,Provinsi,Pulau Balai - Teluk Nibung,Kolektor Primer,Pulau Banyak,Teluk Nibung,TPI Pulau Balai,Ds. Teluk Nibung,9.11,,,,,,,,,2017
+P03,Provinsi,Lingkar Pulau Tuangku,Kolektor Primer,Pulau Banyak Barat,Haloban - Ujung Sialit,Ds. Haloban,Ds Ujung Sialit,11.62,,,,,,,,,2017
+P04,Provinsi,Lipat Kajang - Kampung Baru,Kolektor Primer,Lipat Kajang,Lipat Kajang - Kp. Baru,Ds. Lipat Kajang,Sp. Tiga Kp. Baru (Sp. Koreng),24.55,,,,,,,,,2017
+K001,Kabupaten,Biskang - Danau Paris,Kolektor Sekunder,Danau Paris,Biskang,Desa Biskang,Danau Paris,1.55,5.0,,,0.0,0.0,0.0,1.6,,2017
+K002,Kabupaten,Biskang - Sp.Kantor Camat,Kolektor Sekunder,Danau Paris,Biskang,Biskang,Kantor Camat Danau Paris,0.62,5.0,,,0.0,0.0,0.6,0.0,,2017
+K003,Kabupaten,Islamic Center Danau Paris,Kolektor Sekunder,Danau Paris,Biskang,Sp. Jalan Nasional,Islamic Center Danau Paris,0.32,5.0,,,0.3,0.0,0.0,0.0,Peningkatan 2016,2017
+K004,Kabupaten,Jalan Lingkar Kec. Danau Paris,Kolektor Sekunder,Danau Paris,Biskang,Sp. Jalan Nasional,Sp. Jalan Nasional,2.34,5.0,,,1.6,0.0,0.7,0.0,,2017
+K005,Kabupaten,Kantor Camat - Danau Paris,Kolektor Sekunder,Danau Paris,Biskang,Sp. Jalan Nasional Kantro Camat,Danau Paris,5.43,5.0,,,0.0,0.0,3.6,1.8,,2017
+K006,Kabupaten,Lingkar Biskang,Kolektor Sekunder,Danau Paris,Biskang,Sp. Jalan Nasional,Sp. Tiga Kantor Camat Danau Paris,1.73,5.0,,,0.0,0.0,1.3,0.4,Peningkatan 2019,2017
+K007,Kabupaten,Situban Makmur,Kolektor Sekunder,Danau Paris,Situban Makmur,Sp. Situban Makmur,Ds. Situban Makmur,1.8,4.5,,,0.1,0.0,0.0,1.7,,2017
+K008,Kabupaten,Sp. Si Tubuh Tubuh - Sp. Situban Makmur,Kolektor Sekunder,Danau Paris,Situban Makmur,Sp. Si Tubuh Tubuh,Sp. Situban Makmur,15.81,5.0,,,0.0,0.0,14.0,1.8,Peningkatan 2018,2017
+K009,Kabupaten,Transmigrasi Lae Balno,Kolektor Sekunder,Danau Paris,Lae Balno,Sp. Jalan Nasional,Ds. Lae Balno,5.12,5.0,,,1.9,0.0,0.0,3.2,Peningkatan 2017,2017
+K010,Kabupaten,Blok VI - Suka Makmur,Kolektor Sekunder,Gunung Meriah,Blok VI - Suka Makmur,Blok VI,Suka Makmur,3.89,4.5,,,2.5,0.0,1.4,0.0,Peningkatan 2010,2017
+K011,Kabupaten,Cingkam - Panjaitan,Kolektor Sekunder,Gunung Meriah,Cingkam - Panjahitan,Cingkam,Panjahitan,1.36,5.0,,,0.1,0.0,1.3,0.0,,2017
+K012,Kabupaten,Gunung Lagan - Seping Baru,Kolektor Sekunder,Gunung Meriah,Gunung Lagan - Seping Baru,Gunung Lagan,Seping Baru,0.76,4.5,,,0.2,0.0,0.6,0.0,Peningkatan 2018,2017
+K013,Kabupaten,Gunung Lagan - Suka Makmur,Kolektor Sekunder,Gunung Meriah,Gunung Lagan - Suka Makmur,Gunung Lagan,Suka Makmur,5.88,5.5,,,5.9,0.0,0.0,0.0,Peningkatan 2016,2017
+K014,Kabupaten,Gunung Tigo - Pabrik Socfindo,Kolektor Sekunder,Gunung Meriah,Gunung Tigo,Gunung Tigo,Pabrik Socfindo,0.52,5.0,,,0.0,0.0,0.5,0.0,,2017
+K015,Kabupaten,Handel - Pajak Mingguan,Kolektor Sekunder,Gunung Meriah,Handel,Handel,Pajak Mingguan,0.13,4.5,,,0.1,0.0,0.0,0.0,Peningkatan 2018,2017
+K016,Kabupaten,Handel - Singkohor,Kolektor Sekunder,Gunung Meriah,Handel,Handel,Singkohor,20.89,6.0,,,19.9,0.0,0.0,1.0,Peningkatan 2019,2017
+K017,Kabupaten,Jalan Dsn IV Rendahan,Kolektor Sekunder,Gunung Meriah,Sidorejo,Sp. Gunung Greute,Suka Makmur,0.75,4.5,,,0.7,0.0,0.0,0.0,Peningkatan 2016,2017
+K018,Kabupaten,Jalan Kantor Desa Suka Makmur,Kolektor Sekunder,Gunung Meriah,Suka Makmur,Sp. Ruas Jalan Blok VI - Suka Makmur,Kantor Desa Suka Makmur,0.36,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2016,2017
+K019,Kabupaten,Jalan Kebun Socfindo,Kolektor Sekunder,Gunung Meriah,Blok 15,Sp. Tunas Harapan,Jembatan Ds. Sanggarberu,3.41,5.0,,,0.8,1.0,1.7,0.0,Peningkatan 2018,2017
+K020,Kabupaten,Jalan Kuala Pinang Tanah Bara,Kolektor Sekunder,Gunung Meriah,Tanah Bara,Kuala Pinang,Tanah Bara,1.19,4.5,,,0.0,0.0,0.9,0.0,,2017
+K021,Kabupaten,Jalan Pandan Sari 1,Kolektor Sekunder,Gunung Meriah,Pandan Sari,Awal Desa Pandan Sari,Akhir Desa Pandan Sari,0.81,5.0,,,0.8,0.0,0.0,0.0,Peningkatan 2016,2017
+K022,Kabupaten,Jalan Pandan Sari 2,Kolektor Sekunder,Gunung Meriah,Pandan Sari,Sp. Ruas Jalan Suka Makmur - Pandan Sari Blok II,Mesjid Pandan Sari,0.93,5.0,,,0.9,0.0,0.0,0.0,Peningkatan 2016,2017
+K023,Kabupaten,Jalan Tanah Bara Atas,Kolektor Sekunder,Gunung Meriah,Tanah Bara,Sp. Jalan Provinsi,Tanah Bara,1.14,4.5,,,0.6,0.4,0.0,0.1,Peningkatan 2017,2017
+K024,Kabupaten,Jalan Tanah Bara Bawah,Kolektor Sekunder,Gunung Meriah,Tanah Bara,Sp. Jalan Provinsi,Tanah Bara Atas,0.62,4.5,,,0.2,0.3,0.0,0.1,Peningkatan 2017,2017
+K025,Kabupaten,Jl. Anggrek Kuning,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,1.22,4.0,,,0.2,0.0,1.0,0.0,,2017
+K026,Kabupaten,Jl. Bahagia,Kolektor Sekunder,Gunung Meriah,Sidorejo,Sp. Tiga Sidorejo,Sp. Tiga Dusun IV Rendahan,0.88,4.0,,,0.9,0.0,0.0,0.0,Peningkatan 2016,2017
+K027,Kabupaten,Jl. Bunga  Kemuning,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.82,4.0,,,0.0,0.0,0.8,0.0,,2017
+K028,Kabupaten,Jl. Bunga Anggrek Merah,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.33,4.0,,,0.0,0.0,0.3,0.0,,2017
+K029,Kabupaten,Jl. Bunga Cempaka Merah,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.66,4.0,,,0.0,0.0,0.7,0.0,,2017
+K030,Kabupaten,Jl. Bunga Cempaka Putih,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.65,4.0,,,0.0,0.0,0.6,0.0,,2017
+K031,Kabupaten,Jl. Bunga Dahlia,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.22,4.0,,,0.0,0.0,0.2,0.0,,2017
+K032,Kabupaten,Jl. Bunga Jumpa,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.42,4.0,,,0.0,0.0,0.4,0.0,,2017
+K033,Kabupaten,Jl. Bunga Kamboja,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.21,4.0,,,0.0,0.0,0.2,0.0,,2017
+K034,Kabupaten,Jl. Bunga Kasturi,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.27,4.0,,,0.0,0.0,0.3,0.0,,2017
+K035,Kabupaten,Jl. Bunga Kenanga,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.35,4.0,,,0.0,0.0,0.3,0.0,,2017
+K036,Kabupaten,Jl. Bunga Matahari,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.29,4.0,,,0.0,0.0,0.3,0.0,,2017
+K037,Kabupaten,Jl. Bunga Mawar,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.75,4.0,,,0.0,0.0,0.8,0.0,,2017
+K038,Kabupaten,Jl. Bunga Melati,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,1.17,4.0,,,0.0,0.0,1.2,0.0,,2017
+K039,Kabupaten,Jl. Bunga Plamboyan,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.57,4.0,,,0.6,0.0,0.0,0.0,Peningkatan 2016,2017
+K040,Kabupaten,Jl. Bunga Raflesia,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.39,4.0,,,0.0,0.0,0.4,0.0,,2017
+K041,Kabupaten,Jl. Bunga Raya,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.83,4.0,,,0.8,0.0,0.0,0.0,Peningkatan 2016,2017
+K042,Kabupaten,Jl. Bunga Rose,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.66,4.0,,,0.0,0.0,0.7,0.0,,2017
+K043,Kabupaten,Jl. Bunga Sedap Malam,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.72,4.0,,,0.0,0.0,0.7,0.0,,2017
+K044,Kabupaten,Jl. Bunga Seroja,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.59,4.0,,,0.0,0.0,0.6,0.0,,2017
+K045,Kabupaten,Jl. Bunga Tanjung Mas,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Perumahan Trans Bukit Harapan,Perumahan Trans Bukit Harapan,0.55,4.0,,,0.0,0.0,0.6,0.0,,2017
+K046,Kabupaten,Jl. Cempedak Blok VI Baru,Kolektor Sekunder,Gunung Meriah,Blok VI,Sp. AMD,Cempedak,0.5,4.0,,,0.4,0.0,0.0,0.1,,2017
+K047,Kabupaten,Jl. Cut Meutia,Kolektor Sekunder,Gunung Meriah,Rimo,Sp. Jalan Provinsi,Kebun Socfindo,1.08,4.0,,,1.1,0.0,0.0,0.0,Peningkatan 2015,2017
+K048,Kabupaten,Jl. Gunung Greute Sidorejo,Kolektor Sekunder,Gunung Meriah,Sidorejo,Sp. Tiga Sidorejo,Sp. Tiga Dusun IV Rendahan,0.86,4.0,,,0.9,0.0,0.0,0.0,Peningkatan 2015,2017
+K049,Kabupaten,Jl. Harsoyo,Kolektor Sekunder,Gunung Meriah,Rimo,Kantor Camat Gunung Meriah,Kantor Camat Gunung Meriah,0.08,4.0,,,0.1,0.0,0.0,0.0,Peningkatan 2015,2017
+K050,Kabupaten,Jl. Jengkol,Kolektor Sekunder,Gunung Meriah,Blok VI,Blok VI Baru,Blok VI Baru,0.5,4.0,,,0.3,0.2,0.0,0.0,Peningkatan 2015,2017
+K051,Kabupaten,Jl. Kantor Desa Lau Butar,Kolektor Sekunder,Gunung Meriah,Lae Butar,Sp.Mesjid Lae Butar,Kantor Desa Lae Butar,0.15,4.0,,,0.2,0.0,0.0,0.0,Peningkatan 2015,2017
+K052,Kabupaten,Jl. Lele Ds. Sidorejo,Kolektor Sekunder,Gunung Meriah,Sidorejo,Sp. AMD Suka Makmur,Jl. Taman Santri,0.57,4.0,,,0.6,0.0,0.0,0.0,Peningkatan 2015,2017
+K053,Kabupaten,Jl. Mesjid Siraul Jannah,Kolektor Sekunder,Gunung Meriah,Blok VI,Sp. Blok VI Suka Makmur,Mesjid Siraul Jannah,0.17,4.0,,,0.2,0.0,0.0,0.0,Peningkatan 2015,2017
+K054,Kabupaten,Jl. Ngatijo,Kolektor Sekunder,Gunung Meriah,Suka Makmur,Suka Makmur,Suka Makmur,0.83,4.0,,,0.0,0.0,0.6,0.2,,2017
+K055,Kabupaten,Jl. Nusa Indah,Kolektor Sekunder,Gunung Meriah,Bukit Harapan,Sp. Ruas Jalan Handel - Singkohor,Perumahan Trans Bukit Harapan,1.75,4.0,,,0.0,0.0,1.4,0.4,,2017
+K056,Kabupaten,Jl. Pono Desa Tulaan,Kolektor Sekunder,Gunung Meriah,Tulaan,Tulaan,Tulaan,0.11,4.5,,,0.0,0.0,0.1,0.0,,2017
+K057,Kabupaten,Jl. Ruko Pemda,Kolektor Sekunder,Gunung Meriah,Lae Butar,Sp. Ruko Pemda,Ruko Pemda,0.14,4.5,,,0.0,0.0,0.1,0.0,,2017
+K058,Kabupaten,Jl. SMA N 1 Gunung Meriah,Kolektor Sekunder,Gunung Meriah,Suka Makmur,SMA N 1 Gunung Meriah,SMA N 1 Gunung Meriah,0.42,5.0,,,0.0,0.0,0.4,0.0,,2017
+K059,Kabupaten,Jl. SMP N 1 Rimo,Kolektor Sekunder,Gunung Meriah,Rimo,SMP N 1 Rimo,SMP N 1 Rimo,0.23,5.0,,,0.2,0.0,0.0,0.0,Peningkatan 2015,2017
+K060,Kabupaten,Jl. SMP N 2 Gunung Meriah,Kolektor Sekunder,Gunung Meriah,Suka Makmur,SMP N 2 Gunung Meriah,SMP N 2 Gunung Meriah,0.27,5.0,,,0.3,0.0,0.0,0.0,Peningkatan 2015,2017
+K061,Kabupaten,Jl. Taman Santri,Kolektor Sekunder,Gunung Meriah,Sidorejo,Sp. Ruas Jalan Blok VI - Suka Makmur,Desa Sidorejo,0.65,4.5,,,0.7,0.0,0.0,0.0,Peningkatan 2015,2017
+K062,Kabupaten,Jl.TR. Angakasa,Kolektor Sekunder,Gunung Meriah,Lae Butar,Sp. Jalan Provinsi,Desa Lae Butar,0.53,4.5,,,0.5,0.0,0.0,0.0,Peningkatan 2015,2017
+K063,Kabupaten,Kampung Kerani - Blok VI Baru,Kolektor Sekunder,Gunung Meriah,Blok VI,Kampung Kerani,Blok VI Baru,0.42,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2015,2017
+K064,Kabupaten,Kuala Pinang - Tanah Bara Bawah,Kolektor Sekunder,Gunung Meriah,Tanah Bara,Kuala Pinang,Kuala Pinang - Gunung Lagan,0.88,5.0,,,0.9,0.0,0.0,0.0,Peningkatan 2015,2017
+K065,Kabupaten,Lae Butar - Sidorejo,Kolektor Sekunder,Gunung Meriah,Lae Butar,Lae Butar,Sidorejo,0.41,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2015,2017
+K066,Kabupaten,Lapangan M. Sipoli - Muhammaddiyah,Kolektor Sekunder,Gunung Meriah,Blok VI,Lapangan M. Sipoli,Muhammaddiyah,0.28,5.5,,,0.3,0.0,0.0,0.0,Peningkatan 2015,2017
+K067,Kabupaten,Lapangan M. Sipoli - Pajak Bertingkat,Kolektor Sekunder,Gunung Meriah,Blok VI,Lapangan M. Sipoli,Pajak Bertingkat,1.17,5.0,,,1.2,0.0,0.0,0.0,Peningkatan 2014,2017
+K068,Kabupaten,Lingkar GOR,Kolektor Sekunder,Gunung Meriah,Gunung Lagan,Showroom Suzuki,GOR,1.21,4.5,,,1.0,0.0,0.2,0.0,Peningkatan 2019,2017
+K069,Kabupaten,Lingkar Gunung Lagan,Kolektor Sekunder,Gunung Meriah,Gunung Lagan,Sp. Tiga Jalan Provinsi,Gunung Lagan,1.25,5.0,,,1.3,0.0,0.0,0.0,Peningkatan 2014,2017
+K070,Kabupaten,Lingkar Lapangan M. Sipoli,Kolektor Sekunder,Gunung Meriah,Blok VI,Lapangan M. Sipoli,Lapangan M. Sipoli,0.37,5.5,,,0.4,0.0,0.0,0.0,Peningkatan 2014,2017
+K071,Kabupaten,Lingkar Muhammadiyah,Kolektor Sekunder,Gunung Meriah,Rimo,Muhammadiyah,Muhammadiyah,0.36,4.5,,,0.4,0.0,0.0,0.0,Peningkatan 2014,2017
+K072,Kabupaten,Lingkar Pajak Mingguan,Kolektor Sekunder,Gunung Meriah,Rimo,Pajak Mingguan,Pajak Mingguan,0.45,4.5,,,0.5,0.0,0.0,0.0,Peningkatan 2014,2017
+K073,Kabupaten,Lorong IV Rendahan,Kolektor Sekunder,Gunung Meriah,Sidorejo,Jl. Bahagia,Dsn IV Rendahan,0.2,4.5,,,0.2,0.0,0.0,0.0,Peningkatan 2014,2017
+K074,Kabupaten,Pajak Betingkat  - SMP N 1 Gunung Meriah,Kolektor Sekunder,Gunung Meriah,Lae Butar,Pajak Betingkat,SMP N 1 Gunung Meriah,1.66,5.0,,,0.6,0.2,0.9,0.0,Peningkatan 2010,2017
+K075,Kabupaten,Pajak Mingguan - Handel (Pelabuhan),Kolektor Sekunder,Gunung Meriah,Rimo,Pajak Mingguan,Handel (Pelabuhan),0.42,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2014,2017
+K076,Kabupaten,Pajak Mingguan - SPBU,Kolektor Sekunder,Gunung Meriah,Rimo,Pajak Mingguan,SPBU Rimo,0.36,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2014,2017
+K077,Kabupaten,Pasar Betingkat - Kampung Kerani,Kolektor Sekunder,Gunung Meriah,Kampung Kerani,Pasar Bertingkat,Kamoung Kerani,0.88,5.0,,,0.9,0.0,0.0,0.0,Peningkatan 2014,2017
+K078,Kabupaten,Perumahan BRR - Terminal,Kolektor Sekunder,Gunung Meriah,Rimo,Perumahan BRR,Terminal Gunung Meriah,0.5,5.0,,,0.0,0.0,0.5,0.0,,2017
+K079,Kabupaten,Perumahan Tanjung Betik BRR,Kolektor Sekunder,Gunung Meriah,Tanjung Betik,Perumahan Tanjung Betik BRR,Perumahan Tanjung Betik BRR,0.41,4.5,,,0.4,0.0,0.0,0.0,Peningkatan 2014,2017
+K080,Kabupaten,Sanggaberu - Silulusan,Kolektor Sekunder,Gunung Meriah,Sanggaberu Silulusan,Sanggaberu,Silulusan,3.95,5.0,,,0.0,0.0,4.0,0.0,Peningkatan 2018,2017
+K081,Kabupaten,Sianjo Anjo (Sp. Mesjid) - Terminal,Kolektor Sekunder,Gunung Meriah,Sianjo Anjo,Sp. Mesjid Sianjo Anjo,Terminal Gunung Meriah,0.94,5.0,,,0.9,0.0,0.0,0.0,Peningkatan 2014,2017
+K082,Kabupaten,Sianjo Anjo - Dangguran,Kolektor Sekunder,Gunung Meriah,Sianjo Anjo,Sianjo Anjo,Tunas Harapan,1.05,5.0,,,0.4,0.4,0.3,0.0,Peningkatan 2011,2017
+K083,Kabupaten,Sianjo Anjo - Tunas Harapan,Kolektor Sekunder,Gunung Meriah,Sianjo Anjo - Tunas Harapan,Sianjo Anjo,Tunas Harapan,1.36,5.0,,,1.4,0.0,0.0,0.0,Peningkatan 2014,2017
+K084,Kabupaten,Sikuningan - Koramil,Kolektor Sekunder,Gunung Meriah,Gunung Lagan,Sikuningan,Koramil,1.28,5.0,,,0.0,0.0,1.3,0.0,,2017
+K085,Kabupaten,Sikuningan - Suka Makmur,Kolektor Sekunder,Gunung Meriah,Gunung Lagan,Sikuningan,Suka Makmur,1.74,5.0,,,0.0,0.0,1.7,0.0,,2017
+K086,Kabupaten,SMA N 1 Gunung Meriah  - Suka Makmur,Kolektor Sekunder,Gunung Meriah,Suka Makmur,SMA N 1 Gunung Meriah,Suka Makmur,0.88,5.0,,,0.0,0.0,0.9,0.0,,2017
+K087,Kabupaten,Sp. AMD -  Sp. Empat Blok VI Baru,Kolektor Sekunder,Gunung Meriah,Blok VI Baru,Sp. AMD,Sp. Empat Blok VI Baru,0.36,4.5,,,0.4,0.0,0.0,0.0,Peningkatan 2014,2017
+K088,Kabupaten,Sp. AMD - Suka Makmur,Kolektor Sekunder,Gunung Meriah,Suka Makmur,Sp. AMD,Suka Makmur,2.86,5.0,,,1.4,1.0,0.5,0.0,Peningkatan 2011,2017
+K089,Kabupaten,Sp. Bazis - Muhammadiyah,Kolektor Sekunder,Gunung Meriah,Rimo,Sp. Bazis,Muhammadiyah,0.56,5.0,,,0.0,0.4,0.2,0.0,Peningkatan 2011,2017
+K090,Kabupaten,Sp. Cross - Suka Makmur,Kolektor Sekunder,Gunung Meriah,Suka Makmur,Sp. Cross,Suka Makmur,1.19,4.5,,,0.0,0.0,1.2,0.0,,2017
+K091,Kabupaten,Sp. Empat Rimo - Pabrik Socfindo,Kolektor Sekunder,Gunung Meriah,Rimo,Sp. Empat Rimo,Pabrik Socfindo,0.43,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2013,2017
+K092,Kabupaten,Sp. Empat Tulaan - Sip. Tiga Wagino,Kolektor Sekunder,Gunung Meriah,Tulaan,Sp. Empat Tulaan,Sp. Tiga Wagino,0.22,5.0,,,0.2,0.0,0.0,0.0,Peningkatan 2013,2017
+K093,Kabupaten,Sp. Gunung Tigo - Handel,Kolektor Sekunder,Gunung Meriah,Rimo,Sp. Gunung Tigo,Handel,0.86,4.5,,,0.3,0.4,0.2,0.0,Peningkatan 2017,2017
+K094,Kabupaten,Sp. Kampung Kerani,Kolektor Sekunder,Gunung Meriah,Kampung Kerani,Sp. Kampung Kerani,Kampung Kerani,0.09,5.0,,,0.0,0.0,0.0,0.1,,2017
+K095,Kabupaten,Sp. Kampus Global - Sp. Bengkel Reza,Kolektor Sekunder,Gunung Meriah,Blok VI Baru,Sp. Kampus Global,Sp. Bengkel Reza,0.53,4.5,,,0.0,0.0,0.5,0.0,Peningkatan 2010,2017
+K096,Kabupaten,Sp. Lapangan M. Sipoli - Jl. Jengkol,Kolektor Sekunder,Gunung Meriah,Blok VI,Sp. Lapangan M. Sipoli,Jl. Jengkol,0.46,4.5,,,0.2,0.2,0.1,0.0,Peningkatan 2012,2017
+K097,Kabupaten,Sp. Mesjid Lae Butar - Sp. Empat Blok VI Baru,Kolektor Sekunder,Gunung Meriah,Lae Butar - Blok VI Baru,Sp. Mesjid Lae Butara,Sp. Empat Blok VI Baru,0.93,4.5,,,0.9,0.0,0.0,0.0,Peningkatan 2013,2017
+K098,Kabupaten,Sp. Perumahan BRR - Tunas Harapan,Kolektor Sekunder,Gunung Meriah,Tunas Harapan,Sp. Perumahan BRR,Tunas Harapan,0.42,5.0,,,0.0,0.0,0.4,0.0,Peningkatan 2011,2017
+K099,Kabupaten,Sp. PLN Tanah Bara - Sidorejo,Kolektor Sekunder,Gunung Meriah,Tanah Bara - Sidorejo,Sp. PLN Tanah Bara,Sidorejo,1.31,5.0,,,0.4,0.4,0.5,0.0,Peningkatan 2010,2017
+K100,Kabupaten,Sp. Sakup - Tanah Merah,Kolektor Sekunder,Gunung Meriah,Tanah Merah,Sp. Sakup,Tanah Merah,5.14,5.0,,,2.6,1.4,1.2,0.0,Peningkatan 2010,2017
+K101,Kabupaten,Sp. Sangga Beru - Tulaan,Kolektor Sekunder,Gunung Meriah,Sanggaberu - Tulaan,Sp. Sanggaberu,Tulaan,0.94,5.0,,,0.2,0.0,0.8,0.0,,2017
+K102,Kabupaten,Sp. Tower - Terminal,Kolektor Sekunder,Gunung Meriah,Tunas Harapan,Sp. Tower,Terminal Gunung Meriah,0.47,5.0,,,0.5,0.0,0.0,0.0,Peningkatan 2013,2017
+K103,Kabupaten,SPBU - Muhammadiyah,Kolektor Sekunder,Gunung Meriah,Rimo,SPBU Rimo,Muhammadiyah,0.57,5.0,,,0.6,0.0,0.0,0.0,Peningkatan 2013,2017
+K104,Kabupaten,Suka Makmur - Pandan Sari Blok II,Kolektor Sekunder,Gunung Meriah,Suka Makmur - Pandan Sari,Sua Makmur,Pandan Sari Blok II,2.39,5.0,,,2.2,0.1,0.1,0.0,Peningkatan 2012,2017
+K105,Kabupaten,Suka Makmur - Tanah Bara (Sp. Amal),Kolektor Sekunder,Gunung Meriah,Suka Makmur - Tanah Bara,Suka Makmur,Sp. Amal Tanah Bara,1.39,5.0,,,1.0,0.2,0.2,0.0,Peningkatan 2011,2017
+K106,Kabupaten,Tanah Merah - Perumahan BRR,Kolektor Sekunder,Gunung Meriah,Tanah Merah,Tanah Merah,Perumahan BRR,0.64,4.5,,,0.0,0.0,0.6,0.0,Peningkatan 2010,2017
+K107,Kabupaten,Terminal - Tunas Harapan,Kolektor Sekunder,Gunung Meriah,Tunas Harapan,Terminal Gunung Meriah,Tunas Harapan,0.43,5.0,,,0.0,0.0,0.4,0.0,,2017
+K108,Kabupaten,Tulaan - Lae Boboh,Kolektor Sekunder,Gunung Meriah,Tulaan,Tulaan,Lae Boboh,0.87,4.5,,,0.5,0.4,0.0,0.0,Peningkatan 2013,2017
+K109,Kabupaten,Tulaan - Sp. Kebun Scofindo,Kolektor Sekunder,Gunung Meriah,Tulaan,Tulaan,Sp. Kebun Socfindo,0.21,4.5,,,0.2,0.0,0.0,0.0,Peningkatan 2013,2017
+K110,Kabupaten,Jl. Jeruk Purut 1,Kolektor Sekunder,Gunung Meriah,Tanah Bara,Sp. Jalan Provinsi,Jalan Provinsi,0.55,4.5,,,0.2,0.4,0.0,0.0,Peningkatan 2013,2017
+K111,Kabupaten,Jl. Jeruk Purut 2,Kolektor Sekunder,Gunung Meriah,Tanah Bara,Sp. Jalan Provinsi,Jl. Jeruk Purut 1,0.39,4.5,,,0.2,0.2,0.0,0.0,Peningkatan 2013,2017
+K112,Kabupaten,Bukit Harapan - Sri Kayu - Muara Pea,Kolektor Sekunder,Kota Baharu,Bukit Harapan - Sri Kayu - Muara Pea,Bukit Harapan,Muara Pea,9.25,5.0,,,7.2,0.0,2.1,0.0,Peningkatan 2018,2017
+K113,Kabupaten,Jalan Sumber Mukti,Kolektor Sekunder,Kota Baharu,Sumber Mukti,Sp. Sumber Mukti,Sumber Mukti,0.75,6.0,,,0.2,0.0,0.6,0.0,,2017
+K114,Kabupaten,Singkohor - Silakar Udang,Kolektor Sekunder,Kota Baharu,Singkohor - Silakar Udang,Singkohor,Silakar Udang,8.94,5.0,,,0.0,0.0,0.0,9.0,Peningkatan 2018,2017
+K115,Kabupaten,Mukti Jaya - Mukti Lincir,Kolektor Sekunder,Kota Baharu,Mukti Jaya - Mukti Lincir,Mukti Jaya,Mukti Lincir,7.0,6.0,,,1.0,0.0,4.8,1.2,,2017
+K116,Kabupaten,Bungara 1,Kolektor Sekunder,Kota Baharu,Danau Bungara,Danau Bungara,Danau Bungara,0.19,4.0,,,0.0,0.0,0.2,0.0,,2017
+K117,Kabupaten,Bungara 2,Kolektor Sekunder,Kota Baharu,Danau Bungara,Danau Bungara,Danau Bungara,0.12,4.0,,,0.0,0.0,0.1,0.0,,2017
+K118,Kabupaten,Bungara 3,Kolektor Sekunder,Kota Baharu,Danau Bungara,Danau Bungara,Danau Bungara,0.19,4.0,,,0.0,0.0,0.2,0.0,,2017
+K119,Kabupaten,Bungara 4,Kolektor Sekunder,Kota Baharu,Danau Bungara,Danau Bungara,Danau Bungara,0.38,4.0,,,0.4,0.0,0.0,0.0,Peningkatan 2013,2017
+K120,Kabupaten,Bungara 5,Kolektor Sekunder,Kota Baharu,Danau Bungara,Danau Bungara,Danau Bungara,0.47,4.0,,,0.4,0.0,0.0,0.1,,2017
+K121,Kabupaten,Polsek Kota Baharu - Lapahan Buaya,Kolektor Sekunder,Kota Baharu,Kota Baharu,Polsek Kota Baharu,Lapahan Buaya,5.95,5.0,,,2.1,0.0,3.9,0.0,,2017
+K122,Kabupaten,Sp. Lapahan Buaya - Butar,Kolektor Sekunder,Kota Baharu,Butar,Sp. Lapahan Buaya,Butar,0.43,5.0,,,0.0,0.0,0.4,0.0,,2017
+K123,Kabupaten,Jembatan Kuala Baru,Kolektor Sekunder,Kuala Baru,Kuala Baru Sungai,Jembatan Kuala Baru,Kuala Baru,0.19,4.5,,,0.0,0.2,0.0,0.0,,2017
+K124,Kabupaten,Jl. Kantor Camat Kuala Baru,Kolektor Sekunder,Kuala Baru,Kuala Baru Sungai,Sp. Kantor Camat Kuala Baru,Kantor Camat Kuala Baru,0.64,4.5,,,0.0,0.6,0.0,0.0,,2017
+K125,Kabupaten,Kuala Baru Laut - Suka Jaya,Kolektor Sekunder,Kuala Baru,Kuala Baru Laut - Suka Jaya,Kuala Baru Laut,Suka Jaya,1.36,5.0,,,0.0,1.4,0.0,0.0,,2017
+K126,Kabupaten,Kuala Baru Sungai,Kolektor Sekunder,Kuala Baru,Kuala Baru Sungai,Sp. Kuala Baru Sungai,Kuala Baru Sungai,0.68,4.5,,,0.0,0.7,0.0,0.0,Peningkatan 2017,2017
+K127,Kabupaten,Jl. SMP Kuala Baru Sungai,Kolektor Sekunder,Kuala Baru,Kuala Baru Sungai,Sp. SMP Kuala Baru Sungai,SMp Kuala Baru Sungai,0.16,5.0,,,0.0,0.2,0.0,0.0,Peningkatan 2017,2017
+K128,Kabupaten,Lingkar Kuala Baru Laut,Kolektor Sekunder,Kuala Baru,Kuala Baru Laut,Kuala Baru Laut,Kuala Baru Laut,0.65,4.5,,,0.7,0.0,0.0,0.0,Peningkatan 2013,2017
+K129,Kabupaten,BRR Pulau Baguk,Kolektor Sekunder,Pulau Banyak,Pulau Baguk,BRR Pulau Baguk,BRR Pulau Baguk,0.09,4.5,,,0.0,0.1,0.0,0.0,,2017
+K130,Kabupaten,BRR Pulau Balai,Kolektor Sekunder,Pulau Banyak,Pulau Balai,BRR Pulau Balai,BRR Pulau Balai,0.79,4.5,,,0.0,0.8,0.0,0.0,,2017
+K131,Kabupaten,Jl. Iskandar Muda Pulau Balai,Kolektor Sekunder,Pulau Banyak,Pulau Balai,Sp. Jalan Provinsi,Pelabuhan,0.36,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2013,2017
+K132,Kabupaten,Jl. Mesjid Pulau Baguk,Kolektor Sekunder,Pulau Banyak,Pulau Baguk,Sp. Jalan Provinsi,Mesjid,0.3,5.0,,,0.3,0.0,0.0,0.0,Peningkatan 2013,2017
+K133,Kabupaten,Jl. Pulau Baguk I,Kolektor Sekunder,Pulau Banyak,Pulau Baguk,Sp. Jalan Provinsi,Jalan Lingkar Pulau Baguk,0.31,4.5,,,0.0,0.3,0.0,0.0,,2017
+K134,Kabupaten,Jl. Pulau Baguk II,Kolektor Sekunder,Pulau Banyak,Pulau Baguk,Jalan Pulau Baguk I,Jalan Lingkar Pulau Baguk,0.18,4.5,,,0.0,0.2,0.0,0.0,,2017
+K135,Kabupaten,Jl. Pulau Baguk III,Kolektor Sekunder,Pulau Banyak,Pulau Baguk,Sp. Jalan Provinsi,Jalan Lingkar Pulau Baguk,0.37,4.5,,,0.0,0.4,0.0,0.0,,2017
+K136,Kabupaten,Jl. Pulau Baguk IV,Kolektor Sekunder,Pulau Banyak,Pulau Baguk,Jalan Pulau Baguk I,Jalan Lingkar Pulau Baguk,0.4,4.5,,,0.0,0.4,0.0,0.0,,2017
+K137,Kabupaten,Jl. Pulau Balai I,Kolektor Sekunder,Pulau Banyak,Pulau Balai,Sp. Jalan Provinsi,Jalan Lingkar Pulau Baguk,0.25,4.5,,,0.0,0.3,0.0,0.0,,2017
+K138,Kabupaten,Jl. Pulau Balai II,Kolektor Sekunder,Pulau Banyak,Pulau Balai,Sp. Jalan Lingkar Pulau Baguk,Pelabuhan,0.07,4.5,,,0.0,0.1,0.0,0.0,,2017
+K139,Kabupaten,Jl. Pulau Balai III,Kolektor Sekunder,Pulau Banyak,Pulau Balai,Sp. Jalan Lingkar Pulau Baguk,Jl. Iskandar Muda Pulau Baguk,0.19,4.5,,,0.0,0.2,0.0,0.0,,2017
+K140,Kabupaten,Lingkar Pulau Balai - Pulau Baguk,Kolektor Sekunder,Pulau Banyak,Pulau Balai - Pulau Baguk,Lingkar Pulau Balai,Pulau Baguk,2.09,8.0,,,0.0,0.0,2.1,0.0,Peningkatan 2017,2017
+K141,Kabupaten,Pelabuhan Pulai Balai,Kolektor Sekunder,Pulau Banyak,Pulau Balai,Sp. Pelabuhan Pulau Balai,Pelabuhan Pulai Balai,0.12,8.0,,,0.0,0.1,0.0,0.0,,2017
+K142,Kabupaten,Teluk Nibung I,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Sp. Jalan Provinsi,Jalan Teluk Nibung VII,0.15,5.0,,,0.0,0.0,0.2,0.0,,2017
+K143,Kabupaten,Teluk Nibung II,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Sp. Jalan Provinsi,Jalan Teluk Nibung VII,0.15,5.0,,,0.0,0.0,0.2,0.0,,2017
+K144,Kabupaten,Teluk Nibung III,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Sp. Jalan Provinsi,Jalan Teluk Nibung VII,0.16,4.5,,,0.0,0.0,0.2,0.0,,2017
+K145,Kabupaten,Teluk Nibung IV,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Sp. Jalan Provinsi,Pelabuhan,0.2,4.5,,,0.0,0.0,0.2,0.0,,2017
+K146,Kabupaten,Teluk Nibung IX,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Sp. Jalan Provinsi,Ujung Jalan Teluk Nibung IX,0.24,4.5,,,0.0,0.0,0.2,0.0,,2017
+K147,Kabupaten,Teluk Nibung V,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Jalan Teluk Nibung IX,Pelabuhan,0.14,4.5,,,0.0,0.0,0.1,0.0,,2017
+K148,Kabupaten,Teluk Nibung VI,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Jalan Teluk Nibung IX,Jalan Teluk Nibung VIII,0.14,4.5,,,0.0,0.0,0.1,0.0,,2017
+K149,Kabupaten,Teluk Nibung VII,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Sp. Jalan Provinsi,Ujung Jalan Teluk Nibung VII,0.2,4.5,,,0.0,0.0,0.2,0.0,,2017
+K150,Kabupaten,Teluk Nibung VIII,Kolektor Sekunder,Pulau Banyak,Teluk Nibung,Sp. Jalan Provinsi,Jalan Teluk Nibung VI,0.16,4.5,,,0.0,0.0,0.2,0.0,,2017
+K151,Kabupaten,TPI Pulau Baguk,Kolektor Sekunder,Pulau Banyak,Pulau Baguk,Sp. TPU Pulau Baguk,TPU Pulau Baguk,0.18,5.0,,,0.0,0.0,0.2,0.0,,2017
+K152,Kabupaten,Asan Tola II,Kolektor Sekunder,Pulau Banyak Barat,Asan Tola,Asan Tola,Asan Tola,0.21,4.5,,,0.0,0.0,0.2,0.0,,2017
+K153,Kabupaten,Asan Tola III,Kolektor Sekunder,Pulau Banyak Barat,Asan Tola,Asan Tola,Asan Tola,0.08,4.5,,,0.0,0.0,0.1,0.0,,2017
+K154,Kabupaten,Asan Tola IV - Komp. BRR,Kolektor Sekunder,Pulau Banyak Barat,Asan Tola,Asan Tola,Asan Tola,0.19,4.5,,,0.0,0.0,0.2,0.0,,2017
+K155,Kabupaten,Asan Tola V,Kolektor Sekunder,Pulau Banyak Barat,Asan Tola,Asan Tola,Asan Tola,0.09,4.5,,,0.0,0.0,0.0,0.1,,2017
+K156,Kabupaten,Asan Tola VI,Kolektor Sekunder,Pulau Banyak Barat,Asan Tola,Asan Tola,Asan Tola,0.09,4.5,,,0.0,0.0,0.0,0.1,,2017
+K157,Kabupaten,Asan Tola VII,Kolektor Sekunder,Pulau Banyak Barat,Asan Tola,Asan Tola,Asan Tola,0.16,4.5,,,0.0,0.0,0.0,0.2,,2017
+K158,Kabupaten,Haloban I,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Haloban,Haloban,0.35,5.0,,,0.0,0.0,0.4,0.0,,2017
+K159,Kabupaten,Haloban II,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Haloban,Haloban,0.16,5.0,,,0.0,0.0,0.2,0.0,,2017
+K160,Kabupaten,Haloban III - Komp. BRR,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Haloban,Haloban,0.25,4.5,,,0.0,0.0,0.2,0.0,,2017
+K161,Kabupaten,Haloban IV,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Haloban,Haloban,0.12,4.5,,,0.0,0.0,0.1,0.0,,2017
+K162,Kabupaten,Haloban V,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Haloban,Haloban,0.13,4.5,,,0.0,0.0,0.1,0.0,,2017
+K163,Kabupaten,Haloban VI,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Haloban,Haloban,0.09,4.5,,,0.0,0.0,0.1,0.0,,2017
+K164,Kabupaten,Jl. PDAM Pulau Banyak Barat,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Sp. Jalan Provinsi,PDAM Pulau Banya Barat,0.33,8.0,,,0.0,0.0,0.0,0.3,,2017
+K165,Kabupaten,Jl. SD Suka Makmur Pulau Banyak Barat,Kolektor Sekunder,Pulau Banyak Barat,Suka Makmur,Sp. Jalan Provinsi,Jalan Suka Makmur,0.07,6.0,,,0.0,0.0,0.0,0.1,,2017
+K166,Kabupaten,Jl. TPU / Polsek Pulau Banyak Barat,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Sp. Jalan Provinsi,Polsek Pulau Banyak Barat,0.14,5.0,,,0.0,0.0,0.1,0.0,Peningkatan 2017,2017
+K167,Kabupaten,Lingkar Asan Tola,Kolektor Sekunder,Pulau Banyak Barat,Asan Tola,Asan Tola,Asan Tola,0.42,4.5,,,0.0,0.0,0.0,0.4,,2017
+K168,Kabupaten,Lingkar Haloban,Kolektor Sekunder,Pulau Banyak Barat,Haloban,Haloban,Haloban,1.0,4.5,,,0.0,0.0,1.0,0.0,Peningkatan 2017,2017
+K169,Kabupaten,Suka Makmur Pulau Banyak Barat,Kolektor Sekunder,Pulau Banyak Barat,Suka Makmur,Sp. Jalan Provinsi,Pelabuhan,0.98,5.0,,,0.0,0.0,0.0,1.0,,2017
+K170,Kabupaten,Ujung Sialit - Suka Makmur,Kolektor Sekunder,Pulau Banyak Barat,Ujung Sialit - Suka Makmur,Ujung Sialit,Suka Makmur,4.41,5.0,,,0.0,0.0,0.0,4.4,,2017
+K171,Kabupaten,SMP N 1 Simpang Kanan,Kolektor Sekunder,Simpang Kanan,Tanjung Mas,Sp. SMP N 1 Simpang Kanan,SMP N 1 Simpang Kanan,0.38,5.0,,,0.2,0.0,0.2,0.0,Peningkatan 2011,2017
+K172,Kabupaten,Jl. SMP N 2 Simpang Kanan,Kolektor Sekunder,Simpang Kanan,Sukarejo,Sp. SMP N 2 Simpang Kanan,SMP N 2 Simpang Kanan,0.26,5.0,,,0.0,0.0,0.0,0.3,Peningkatan 2019,2017
+K173,Kabupaten,Jl. Sukarejo 1,Kolektor Sekunder,Simpang Kanan,Sukarejo,Sp. Tiga Sukarejo,Sukarejo,0.31,4.5,,,0.0,0.0,0.0,0.3,Peningkatan 2019,2017
+K174,Kabupaten,Jl. Sukarejo 2,Kolektor Sekunder,Simpang Kanan,Sukarejo,Jalan Sukarejo 1,Jalan Sukarejo 3,0.09,4.5,,,0.0,0.0,0.0,0.1,,2017
+K175,Kabupaten,Jl. Sukarejo 3,Kolektor Sekunder,Simpang Kanan,Sukarejo,Sp. Ruas Jalan Kota Kerangan - Blok VII,Jalan Sukarejo 4,0.2,4.5,,,0.0,0.0,0.0,0.2,,2017
+K176,Kabupaten,Jl. Sukarejo 4,Kolektor Sekunder,Simpang Kanan,Sukarejo,Sp. Ruas Jalan Kota Kerangan - Blok VII,Sp. Ruas Jalan Kota Kerangan - Blok VII,0.14,4.5,,,0.0,0.0,0.0,0.1,Peningkatan 2019,2017
+K177,Kabupaten,Jl. Tanah Lapang Sukarejo,Kolektor Sekunder,Simpang Kanan,Sukarejo,Mesjid Sukarejo,Sp. Ruas Jalan Kota Kerangan - Blok VII,0.15,5.0,,,0.0,0.0,0.0,0.2,,2017
+K178,Kabupaten,Kain Golong - Pandan Sari,Kolektor Sekunder,Simpang Kanan,Kain Golong - Pandan Sari,Kain Golong,Pandan Sari,1.26,5.0,,,0.0,0.0,0.0,1.3,,2017
+K179,Kabupaten,Kajang Atas - Kajang Bawah,Kolektor Sekunder,Simpang Kanan,Lipat Kajang Atas - Lipat Kajang Bawah,Kajang Atas,Kajang Bawah,7.59,5.0,,,3.3,2.2,0.0,2.1,Peningkatan 2018,2017
+K180,Kabupaten,Kajang Atas - Sukarejo,Kolektor Sekunder,Simpang Kanan,Lipat Kajang Atas - Sukarejo,Kajang Atas,Sukarejo,2.32,5.0,,,2.3,0.0,0.0,0.0,Peningkatan 2019,2017
+K181,Kabupaten,Kota Kerangan - Blok VII,Kolektor Sekunder,Simpang Kanan,Kota Kerangan - Blok VII,Kota Kerangan,Blok VII,3.05,5.0,,,0.4,2.5,0.2,0.0,Peningkatan 2019,2017
+K182,Kabupaten,Kota Tinggi - Kota Batu,Kolektor Sekunder,Simpang Kanan,Kota Tinggi - Kota Batu,Kota Tinggi,Kota Batu,1.22,5.0,,,0.2,0.6,0.4,0.0,,2017
+K183,Kabupaten,Kuta Tinggi - Lae Gecih,Kolektor Sekunder,Simpang Kanan,Kuta Tinggi - Lae Gecih,Kuta Tinggi,Lae Gecih,1.79,5.0,,,0.7,1.1,0.0,0.0,,2017
+K184,Kabupaten,Kuta Tinggi - Lae Muntu,Kolektor Sekunder,Simpang Kanan,Kuta Tinggi - Lae Muntu,Kuta Tinggi,Lae Muntu,0.3,5.0,,,0.1,0.0,0.2,0.0,,2017
+K185,Kabupaten,Kuta Tinggi - Lae Riman - Silatong,Kolektor Sekunder,Simpang Kanan,Kuta Tinggi - Lae Riman - Silatong,Kuta Tinggi,Silatong,4.56,5.0,,,0.8,3.8,0.0,0.0,,2017
+K186,Kabupaten,Lingkar Kajang I,Kolektor Sekunder,Simpang Kanan,Lipat Kajang,Kajang Atas,Kajang Bawah,0.09,5.0,,,0.1,0.0,0.0,0.0,Peningkatan 2012,2017
+K187,Kabupaten,Lingkar Kajang II,Kolektor Sekunder,Simpang Kanan,Lipat Kajang,Kajang Atas,Kajang Bawah,0.16,5.0,,,0.2,0.0,0.0,0.0,Peningkatan 2012,2017
+K188,Kabupaten,Lingkar Kajang III,Kolektor Sekunder,Simpang Kanan,Lipat Kajang,Kajang Atas,Kajang Bawah,0.15,5.0,,,0.2,0.0,0.0,0.0,Peningkatan 2012,2017
+K189,Kabupaten,Lingkar Mesjid Sukarejo,Kolektor Sekunder,Simpang Kanan,Sukarejo,Sp. Mesjid Sukarejo,Mesjid Sukarejo,0.18,4.5,,,0.0,0.2,0.0,0.0,,2017
+K190,Kabupaten,Lingkar Sukarejo,Kolektor Sekunder,Simpang Kanan,Sukarejo,Sp. Ds. Sukarejo,Ds. Sukarejo,0.35,4.5,,,0.0,0.3,0.0,0.0,,2017
+K191,Kabupaten,Lipat Kajang - Urug Janting,Kolektor Sekunder,Simpang Kanan,Lipat Kajang - Urug Janting,Lipat Kajang,Urug Janting,2.21,5.0,,,0.5,0.0,0.0,1.7,,2017
+K192,Kabupaten,Partabas - Parkiraman,Kolektor Sekunder,Simpang Kanan,Partabas - Parkiraman,Partabas,Parkiraman,1.36,5.0,,,0.0,1.4,0.0,0.0,,2017
+K193,Kabupaten,Pasar - Kajang Bawah,Kolektor Sekunder,Simpang Kanan,Lipat Kajang Atas,Pasar,Kajang Bawah,0.39,4.5,,,0.0,0.4,0.0,0.0,,2017
+K194,Kabupaten,Siatas - Sp. Sosor,Kolektor Sekunder,Simpang Kanan,Siatas,Siatas,Sp. Sosor,10.64,5.0,,,0.5,10.1,0.0,0.0,,2017
+K195,Kabupaten,Sikontang - Kain Golong,Kolektor Sekunder,Simpang Kanan,Sikontang - Kain Golong,Sikontang,Kain Golong,1.64,5.0,,,0.0,1.6,0.0,0.0,Peningkatan 2019,2017
+K196,Kabupaten,Sikontang - Urug Janting,Kolektor Sekunder,Simpang Kanan,Sikontang - Urug Janting,Sikontang,Urug Janting,0.46,5.0,,,0.0,0.0,0.5,0.0,,2017
+K197,Kabupaten,Silatong - Ujung Limus,Kolektor Sekunder,Simpang Kanan,Silatong - Ujung Limus,Silatong,Ujung Limus,2.92,5.0,,,2.9,0.0,0.0,0.0,Peningkatan 2016,2017
+K198,Kabupaten,SMA N 1 Simpang Kanan - Urug Janting,Kolektor Sekunder,Simpang Kanan,Urug Janting,SMA N 1 Simpang Kanan,Urug Janting,0.38,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2012,2017
+K199,Kabupaten,Sp. Pasar Kajang - SMA N 1 Simpang Kanan,Kolektor Sekunder,Simpang Kanan,Lipat Kajang,Sp. Pasar Kajang,SMA N 1 Simpang Kanan,0.95,4.5,,,0.9,0.0,0.0,0.1,,2017
+K200,Kabupaten,Tugan - Urug Janting,Kolektor Sekunder,Simpang Kanan,Tugan - Urug Janting,Tugan,Urug Janting,1.19,5.0,,,0.0,0.4,0.8,0.0,,2017
+K201,Kabupaten,Bengkolan - Suka Makmur,Kolektor Sekunder,Singkil,Suka Makmur,Bengkolan,Suka Makmur,0.65,5.0,,,0.6,0.0,0.0,0.1,Peningkatan 2017,2017
+K202,Kabupaten,Dsn. Kurnia - Perumahan  BRR,Kolektor Sekunder,Singkil,Pulo Sarok,Dsn. Kurnia,Perumahan BRR,0.9,5.0,,,0.9,0.0,0.0,0.0,Peningkatan 2012,2017
+K203,Kabupaten,Dsn. Kurnia - PLN,Kolektor Sekunder,Singkil,Pulo Sarok,Dsn. Kurnia,PLN,0.35,5.0,,,0.3,0.0,0.0,0.0,Peningkatan 2012,2017
+K204,Kabupaten,Dsn. Kurnia - Ruko Pemda,Kolektor Sekunder,Singkil,Pulo Sarok,Dsn. Kurnia,Ruko Pemda,0.36,5.0,,,0.0,0.0,0.0,0.4,,2017
+K205,Kabupaten,Dsn. Kurnia - Sp. BRR,Kolektor Sekunder,Singkil,Pulo Sarok,Dsn. Kurnia,Sp. BRR,0.37,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2012,2017
+K206,Kabupaten,Dusun Pendidikan - Mitigasi,Kolektor Sekunder,Singkil,Kampung Ujung,Dsn Pendidikan,Mitigasi,0.27,5.0,,,0.0,0.0,0.0,0.3,,2017
+K207,Kabupaten,Jalan Utama Trans,Kolektor Sekunder,Singkil,Teluk Ambun,Sp. Perumahan BRR Teluk Ambun,Perumahan BRR Teluk Ambun,0.44,5.0,,,0.0,0.4,0.0,0.0,,2017
+K208,Kabupaten,Jl. Belakang Mesjid Pasar 1,Kolektor Sekunder,Singkil,Pasar Singkil,Sp. Jl. Belakang Mesjid Pasar 3,Mesjid,0.1,4.5,,,0.0,0.1,0.0,0.0,Peningkatan 2017,2017
+K209,Kabupaten,Jl. Belakang Mesjid Pasar 2,Kolektor Sekunder,Singkil,Pasar Singkil,Sp. Jalan Nasional,Jl. Belakang Mesjid Pasar 1,0.07,4.5,,,0.0,0.1,0.0,0.0,Peningkatan 2017,2017
+K210,Kabupaten,Jl. Belakang Mesjid Pasar 3,Kolektor Sekunder,Singkil,Pasar Singkil,Sp. Jalan Nasional,Jl. Belakang Mesjid Pasar 1,0.19,4.5,,,0.0,0.2,0.0,0.0,Peningkatan 2017,2017
+K211,Kabupaten,Jl. H.M. Khalis,Kolektor Sekunder,Singkil,Pulo Sarok,Sp. Jalan Nasional,Mesjid,0.69,5.0,,,0.7,0.0,0.0,0.0,Peningkatan 2017,2017
+K212,Kabupaten,Jl. Komplek Angkatan Laut,Kolektor Sekunder,Singkil,Pulo Sarok,Sp. Jalan Nasional,Komplek Angkatan Laut,0.3,4.0,,,0.0,0.3,0.0,0.0,,2017
+K213,Kabupaten,Jl. Lingkar SMP I,Kolektor Sekunder,Singkil,Pasar Singkil,Sp. Jalan Nasional,Mesjid,0.21,4.5,,,0.0,0.2,0.0,0.0,,2017
+K214,Kabupaten,Jl. Lingkar SMP II,Kolektor Sekunder,Singkil,Pasar Singkil,Sp. Jalan Nasional,Mesjid,0.21,4.5,,,0.0,0.2,0.0,0.0,,2017
+K215,Kabupaten,Jl. Lingkar SMP III,Kolektor Sekunder,Singkil,Pasar Singkil,Jl. Lingkar SMP I,Jl. Lingkar SMP II,0.11,4.5,,,0.0,0.1,0.0,0.0,,2017
+K216,Kabupaten,Jl. Lingkar Trans Nelayan,Kolektor Sekunder,Singkil,Suka Damai,Komp. Trans Nelayan,Komp. Trans Nelayan,0.81,5.0,,,0.0,0.8,0.0,0.0,,2017
+K217,Kabupaten,Jl. Lukmanul Hakim,Kolektor Sekunder,Singkil,Kampung Ujung,Sp. Jalan Merdeka,Mitigasi,0.5,5.0,,,0.5,0.0,0.0,0.0,Peningkatan 2012,2017
+K218,Kabupaten,Jl. M. Sayuti,Kolektor Sekunder,Singkil,Pulo Sarok,Tugu BPD,Sp. Jalan Nasional,1.09,5.0,,,1.1,0.0,0.0,0.0,Peningkatan 2012,2017
+K219,Kabupaten,Jl. Makmur,Kolektor Sekunder,Singkil,Pulo Sarok,Sp. Jalan Nasional,Jalan M. Khalis,0.61,5.0,,,0.6,0.0,0.0,0.0,Peningkatan 2017,2017
+K220,Kabupaten,Jl. Merpati,Kolektor Sekunder,Singkil,Kampung Ujung,Sp. Ruas Jalan Bengkolan - Kilangan,Kampung Ujung,0.46,5.0,,,0.5,0.0,0.0,0.0,Peningkatan 2012,2017
+K221,Kabupaten,Jl. Mesjid Ahmad Yani,Kolektor Sekunder,Singkil,Pasar Singkil,Sp. Jalan Merdeka,Mesjid Ahmad Yani,0.16,6.0,,,0.2,0.0,0.0,0.0,Peningkatan 2012,2017
+K222,Kabupaten,Jl. Misbah,Kolektor Sekunder,Singkil,Kampung Ujung,Sp. Jalan Nasional,Sp. Ruas Jalan Onan - Perumahan BRR,0.3,5.0,,,0.3,0.0,0.0,0.0,Peningkatan 2012,2017
+K223,Kabupaten,Jl. Pelabuhan Ferry,Kolektor Sekunder,Singkil,Pulo Sarok,Sp. Pelabuhan Ferry,Pelabuhan Ferry,0.14,5.0,,,0.1,0.0,0.0,0.0,Peningkatan 2012,2017
+K224,Kabupaten,Jl. Pendidikan,Kolektor Sekunder,Singkil,Kampung Ujung,Sp. Pendidikan,Jl. Pendidikan,0.07,5.0,,,0.1,0.0,0.0,0.0,Peningkatan 2012,2017
+K225,Kabupaten,Jl. Perdagangan,Kolektor Sekunder,Singkil,Kampung Ujung,Sp. Tiga Tugu Perdagangan,Ruas Jalan Teluk Ambun Lama - Mitigasi,0.5,6.0,,,0.5,0.0,0.0,0.0,Peningkatan 2016,2017
+K226,Kabupaten,Jl. Ruko Pemda,Kolektor Sekunder,Singkil,Pulo Sarok,Sp. Ruko Pemda,Ruko Pemda,0.1,5.0,,,0.1,0.0,0.0,0.0,Peningkatan 2016,2017
+K227,Kabupaten,Jl. Silan,Kolektor Sekunder,Singkil,Kampung Ujung,Sp. Jalan Nasional,Ruas Jalan Teluk Ambun Lama - Mitigasi,0.34,4.5,,,0.3,0.0,0.0,0.0,Peningkatan 2016,2017
+K228,Kabupaten,Jl. Tengku Labaidin,Kolektor Sekunder,Singkil,Siti Ambia,Sp. Jalan Nasional,Ruas Jalan Teluk Ambun Lama - Mitigasi,0.42,5.0,,,0.2,0.0,0.2,0.0,Peningkatan 2018,2017
+K229,Kabupaten,Jl. Utama,Kolektor Sekunder,Singkil,Kampung Ujung,Sp. Jalan Nasional,Ruas Jalan Onan - Perumahan BRR,0.19,5.0,,,0.2,0.0,0.0,0.0,Peningkatan 2015,2017
+K230,Kabupaten,Jl. Utama Trans Nelayan,Kolektor Sekunder,Singkil,Suka Damai,Trans Nelayan,Trans Nelayan,1.01,5.0,,,0.0,1.0,0.0,0.0,Peningkatan 2019,2017
+K231,Kabupaten,Kilangan - Makam Abdul Rauf Al Singkil,Kolektor Sekunder,Singkil,Kilangan,Kilangan,Makam Abdul Rauf Al Singkil,0.12,5.0,,,0.1,0.0,0.0,0.0,Peningkatan 2015,2017
+K232,Kabupaten,Lingkar Perumahan BRR Singkil,Kolektor Sekunder,Singkil,Perumahan BRR,Perumahan BRR Singkil,Perumahan BRR Singkil,0.58,5.0,,,0.6,0.0,0.0,0.0,Peningkatan 2015,2017
+K233,Kabupaten,Lingkar Perumahan IOM,Kolektor Sekunder,Singkil,Kilangan,Perumahan IOM,Perumahan IOM,0.6,4.5,,,0.6,0.0,0.0,0.0,Peningkatan 2015,2017
+K234,Kabupaten,Mitigasi - PLN,Kolektor Sekunder,Singkil,Mitigasi,Mitigasi,PLN,1.24,5.0,,,1.2,0.0,0.0,0.0,Peningkatan 2015,2017
+K235,Kabupaten,Pemancar - Dsn. Pendidikan,Kolektor Sekunder,Singkil,Kampung Ujung,Pemancar,Dsn. Pendidikan,0.62,5.0,,,0.6,0.0,0.0,0.0,Peningkatan 2014,2017
+K236,Kabupaten,Perumahan BRR - Kantor Capil,Kolektor Sekunder,Singkil,Pulo Sarok,Perumahan BRR,Kantor Capil,0.35,5.0,,,0.4,0.0,0.0,0.0,Peningkatan 2014,2017
+K237,Kabupaten,Perumahan BRR - Teluk Ambun,Kolektor Sekunder,Singkil,Teluk Ambun,Perumahan BRR,Teluk Ambun,2.14,5.0,,,0.0,1.5,0.6,0.0,Peningkatan 2019,2017
+K238,Kabupaten,Pulo Sarok - Sp. Tugu BPD,Kolektor Sekunder,Singkil,Pulo Sarok,Pulo Sarok,Sp. Tugu BPD,1.82,5.0,,,0.8,0.6,0.4,0.0,Peningkatan 2017,2017
+K239,Kabupaten,Singkil  - Sp. Jaya Timur,Kolektor Sekunder,Singkil,Singkil - Tanah Merah,Singkil,Sp. Jaya Timur,16.69,5.5,,,5.6,4.2,0.6,6.3,Peningkatan 2017,2017
+K240,Kabupaten,Singkil - Teluk Rumbia,Kolektor Sekunder,Singkil,Teluk Rumbia,Singkil,Teluk Rumbia,5.84,5.0,,,1.7,1.2,0.0,3.0,Peningkatan 2018,2017
+K241,Kabupaten,Siti Ambia - Kilangan,Kolektor Sekunder,Singkil,Siti Ambia - Kilangan,Siti Ambia,Kilangan,1.37,5.0,,,0.9,0.4,0.0,0.0,,2017
+K242,Kabupaten,Siti Ambia - Kp. Ujung,Kolektor Sekunder,Singkil,Siti Ambia - Kampung Ujung,Siti Ambia,Kampung Ujung,0.47,5.0,,,0.4,0.0,0.0,0.1,,2017
+K243,Kabupaten,Siti Ambia - MAN,Kolektor Sekunder,Singkil,Siti Ambia,Siti Ambia,MAN,0.22,5.0,,,0.2,0.0,0.0,0.0,Peningkatan 2014,2017
+K244,Kabupaten,SMA N 1 - Trans DAS,Kolektor Sekunder,Singkil,Kampung Ujung,SMA N 1,Trans DAS,0.46,5.0,,,0.2,0.4,0.0,0.0,,2017
+K245,Kabupaten,Sp. Jl. M. Sayuti - Ruko Pemda,Kolektor Sekunder,Singkil,Pulo Sarok,Sp. Jl. M. Sayuti,Ruko Pemda,0.12,5.0,,,0.0,0.1,0.0,0.0,,2017
+K246,Kabupaten,Sp. Kilangan - Sp. Bengkolan,Kolektor Sekunder,Singkil,Kilangan,Sp. Kilangan,Sp. Bengkolan,1.99,5.0,,,2.0,0.0,0.0,0.0,,2017
+K247,Kabupaten,Sp. Onan - Perumahan BRR,Kolektor Sekunder,Singkil,Siti Ambia - Pulo Sarok,Sp. Onan,Perumahan BRR,2.78,5.0,,,2.8,0.0,0.0,0.0,Peningkatan 2018,2017
+K248,Kabupaten,Sp. Pasar - Sp. Jalan Onan,Kolektor Sekunder,Singkil,Siti Ambia - Kampung Ujung,Sp. Pasar,Sp. Jalan Onan,0.72,5.0,,,0.7,0.0,0.0,0.0,Peningkatan 2014,2017
+K249,Kabupaten,Sp. Pulo Sarok - Socfindo,Kolektor Sekunder,Singkil,Pulo Sarok,Sp. Pulo Sarok,Kebun Socfindo,0.51,5.0,,,0.4,0.0,0.0,0.1,,2017
+K250,Kabupaten,Sp. Safari - Pulo Sarok,Kolektor Sekunder,Singkil,Pulo Sarok,Sp. Safari,Pulo Sarok,0.15,5.0,,,0.1,0.0,0.0,0.0,Peningkatan 2014,2017
+K251,Kabupaten,Sp. Teluk Ambun Lama - Mitigasi,Kolektor Sekunder,Singkil,Suka Makmur - Teluk Ambun,Sp. Teluk Ambun Lama,Mitigasi,2.72,5.0,,,1.2,0.3,0.0,1.3,,2017
+K252,Kabupaten,Sp. Teluk Rumbia - Rantau Gedang,Kolektor Sekunder,Singkil,Teluk Rumbia - Rantau Gedang,Sp. Teluk Rumbia,Rantau Gedang,3.19,5.0,,,0.0,1.8,1.0,0.4,,2017
+K253,Kabupaten,Suka Makmur - Kota Simboling,Kolektor Sekunder,Singkil,Suka Makmur,Suka Makmur,Kota Simboling,1.0,5.0,,,0.0,0.9,0.0,0.1,Peningkatan 2017,2017
+K254,Kabupaten,Ujung Bawang - Pemuka Lama,Kolektor Sekunder,Singkil,Ujung Bawang - Pemuka Lama,Ujung Bawang,Pemuka Lama,3.18,5.0,,,1.0,0.2,0.0,2.0,,2017
+K255,Kabupaten,GOR - Seubatang,Kolektor Sekunder,Singkil Utara,Ketapang Indah  -Seubatang,GOR,Seubatang,5.68,10.0,,,0.0,3.3,2.4,0.0,,2017
+K256,Kabupaten,Gosong Telaga - Pantai Cemara,Kolektor Sekunder,Singkil Utara,Gosong Telaga - Pantai Cemara,Gosong Telaga,Pantai Cemara,1.52,6.0,,,1.5,0.0,0.0,0.0,Peningkatan 2013,2017
+K257,Kabupaten,Gosong Telaga - Muara Pea,Kolektor Sekunder,Singkil Utara,Gosong Telaga - Muara Pea,Gosong Telaga,Muara Pea,2.72,5.0,,,0.0,2.4,0.3,0.0,,2017
+K258,Kabupaten,Jl. Kantor Polres,Kolektor Sekunder,Singkil Utara,Gosong Telaga Timur,Sp. Kantor Polres,Kantor Polres,0.09,5.0,,,0.1,0.0,0.0,0.0,Peningkatan 2013,2017
+K259,Kabupaten,Kp. Baru - Bandara,Kolektor Sekunder,Singkil Utara,Kampung Baru,Kampung Baru,Bandara,1.14,5.0,,,1.1,0.0,0.0,0.0,Peningkatan 2013,2017
+K260,Kabupaten,Kp. Baru - Padang Lawas,Kolektor Sekunder,Singkil Utara,Kampung Baru,Kampung Baru,Padang Lawas,1.34,5.0,,,0.0,0.8,0.5,0.0,,2017
+K261,Kabupaten,Lingkar GOR Ketapang,Kolektor Sekunder,Singkil Utara,Ketapang Indah,GOR Ketapang,GOR Ketapang,0.88,5.0,,,0.9,0.0,0.0,0.0,Peningkatan 2013,2017
+K262,Kabupaten,Lingkar Kantor Polres,Kolektor Sekunder,Singkil Utara,Gosong Telaga Timur,Kantor Polres,Kantor Polres,0.26,5.0,,,0.3,0.0,0.0,0.0,Peningkatan 2013,2017
+K263,Kabupaten,Lingkar Perumnas,Kolektor Sekunder,Singkil Utara,Ketapang Indah,Perumnas,Perumnas,1.23,4.5,,,1.2,0.0,0.0,0.0,Peningkatan 2012,2017
+K264,Kabupaten,Lingkar SMK N 1 Gosong Telaga,Kolektor Sekunder,Singkil Utara,Gosong Telaga Barat,SMK N 1 Gosong Telaga,SMK N 1 Gosong Telaga,0.57,5.0,,,0.6,0.0,0.0,0.0,Peningkatan 2012,2017
+K265,Kabupaten,Lorong I  Kp. Baru,Kolektor Sekunder,Singkil Utara,Kampung Baru,Sp. Jalan Nasional,Ruas Jalan Kp. Baru Padang Lawas,0.47,4.5,,,0.0,0.5,0.0,0.0,,2017
+K266,Kabupaten,Lorong II  Kp. Baru,Kolektor Sekunder,Singkil Utara,Kampung Baru,Ruas Jalan Kp. Baru Padang Lawas,Kp. Baru II,0.63,4.5,,,0.0,0.6,0.0,0.0,,2017
+K267,Kabupaten,Lorong III  Kp. Baru,Kolektor Sekunder,Singkil Utara,Kampung Baru,Ruas Jalan Kp. Baru Padang Lawas,Lorong II  Kp. Baru,0.27,4.5,,,0.0,0.3,0.0,0.0,,2017
+K268,Kabupaten,Muara Pea - Padang Lawas,Kolektor Sekunder,Singkil Utara,Muara Pea,Muara Pea,Padang Lawas,2.55,5.0,,,0.0,1.6,0.9,0.0,,2017
+K269,Kabupaten,Muara Pea - SMAN1 Singkil Utara,Kolektor Sekunder,Singkil Utara,Muara Pea,Muara Pea,SMA N 1 Singkil Utara,1.79,5.0,,,0.0,1.4,0.4,0.0,,2017
+K270,Kabupaten,Perumahan Polres I,Kolektor Sekunder,Singkil Utara,Gosong Telaga Timur,Perumahan Polres I,Perumahan Polres II,0.33,4.5,,,0.3,0.0,0.0,0.0,Peningkatan 2012,2017
+K271,Kabupaten,Perumahan Polres II,Kolektor Sekunder,Singkil Utara,Gosong Telaga Timur,Perumahan Polres II,Perumahan Polres I,0.31,4.5,,,0.3,0.0,0.0,0.0,Peningkatan 2012,2017
+K272,Kabupaten,Perumnas - GOR,Kolektor Sekunder,Singkil Utara,Ketapang Indah,Perumnas,GOR,1.07,5.0,,,0.2,0.9,0.0,0.0,,2017
+K273,Kabupaten,SMK - Perumahan Pipat I,Kolektor Sekunder,Singkil Utara,Gosong Telaga Barat,SMK,Perumahan Pipat I,0.37,5.0,,,0.0,0.4,0.0,0.0,,2017
+K274,Kabupaten,SMK - Perumahan Pipat II,Kolektor Sekunder,Singkil Utara,Gosong Telaga Barat,SMK,Perumahan Pipat II,0.49,5.0,,,0.0,0.5,0.0,0.0,,2017
+K275,Kabupaten,SMK N 1 - Perumnas,Kolektor Sekunder,Singkil Utara,Gosong Telaga Barat,SMK N 1,Perumnas,0.77,5.0,,,0.2,0.6,0.0,0.0,,2017
+K276,Kabupaten,Sp. KODIM - Sp. GOR,Kolektor Sekunder,Singkil Utara,Ketapang Indah,Sp. KODIM,Sp. GOR,0.3,5.0,,,0.0,0.0,0.0,0.3,,2017
+K277,Kabupaten,Sp. SMA - Gosong Telaga,Kolektor Sekunder,Singkil Utara,Gosong Telaga Utara,Sp. SMA,Gosong Telaga,0.57,5.0,,,0.6,0.0,0.0,0.0,Peningkatan 2012,2017
+K278,Kabupaten,Jl. Sembilang,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.38,4.5,,,0.0,0.0,0.0,0.4,,2017
+K279,Kabupaten,Jl. Lele,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,1.34,4.5,,,0.0,0.0,0.0,1.3,,2017
+K280,Kabupaten,Jl. Senangin,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.41,4.5,,,0.0,0.0,0.0,0.4,,2017
+K281,Kabupaten,Jl. Mas,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.57,4.5,,,0.4,0.0,0.0,0.2,,2017
+K282,Kabupaten,Jl. Tongkol,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,1.09,4.5,,,0.0,0.0,1.1,0.0,,2017
+K283,Kabupaten,Jl. Paus,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.51,4.5,,,0.0,0.0,0.5,0.0,,2017
+K284,Kabupaten,Jl. Selar,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,1.28,4.5,,,0.0,0.0,1.3,0.0,,2017
+K285,Kabupaten,Jl. Kakap,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.37,4.5,,,0.0,0.0,0.4,0.0,,2017
+K286,Kabupaten,Jl. Gabus,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.53,4.5,,,0.0,0.0,0.5,0.0,,2017
+K287,Kabupaten,Jl. Tenggiri,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,1.12,4.5,,,0.0,0.0,1.1,0.0,,2017
+K288,Kabupaten,Jl. Bawal,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,1.12,4.5,,,0.0,0.0,1.1,0.0,,2017
+K289,Kabupaten,Jl. Baung,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.54,4.5,,,0.0,0.0,0.5,0.0,,2017
+K290,Kabupaten,Jl. Bandeng,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.57,4.5,,,0.0,0.0,0.6,0.0,,2017
+K291,Kabupaten,Jl. Sepat,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.47,4.5,,,0.0,0.0,0.5,0.0,,2017
+K292,Kabupaten,Jl. Tamban,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.43,4.5,,,0.0,0.0,0.4,0.0,,2017
+K293,Kabupaten,Jl. Teri,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,0.33,4.5,,,0.0,0.0,0.3,0.0,,2017
+K294,Kabupaten,Jl. Pari,Kolektor Sekunder,Singkohor,Singkohor,Perumahan Trans 26,Perumahan Trans 26,1.09,4.5,,,0.4,0.0,0.0,0.7,Peningkatan 2017,2017
+K295,Kabupaten,Singkohor - Mukti Harapan,Kolektor Sekunder,Singkohor,Singkohor - Mukti Harapan,Singkohor,Mukti Harapan,1.44,5.0,,,0.0,0.0,0.0,1.4,,2017
+K296,Kabupaten,Singkohor - Kirenjala,Kolektor Sekunder,Singkohor,Singkohor - Karinjala,Singkohor,Karinjala,18.06,6.0,,,10.9,0.0,5.9,1.2,,2017
+K297,Kabupaten,Singkohor - Batas Kota Subulussalam,Kolektor Sekunder,Singkohor,Singkohor - Longkip (Batas Subulussalam),Singkohor,Longkip (Batas Subulusslam,6.55,6.0,,,3.5,0.0,0.0,3.4,Peningkatan 2018,2017
+K298,Kabupaten,Pangkalan Sulampi,Kolektor Sekunder,Suro,Pangkalan Sulampi,Sp. Jalan Nasional,Panhkalan Sulampi,0.19,5.0,,,0.0,0.0,0.0,0.2,,2017
+K299,Kabupaten,Trans Cikala,Kolektor Sekunder,Suro,Trans Cikala,Sp. Jalan Nasional,Trans Cikala,3.31,5.0,,,1.0,0.0,0.0,2.3,,2017
+K300,Kabupaten,Bulu Seuma - Lae Bangun,Kolektor Sekunder,Suro,Bulu Seuma - Lae Bangun,Bulu Seuma,Lae Bangun,2.57,5.0,,,1.7,0.0,0.0,0.9,Peningkatan 2017,2017
+K301,Kabupaten,Lingkar Bulu Seuma,Kolektor Sekunder,Suro,Bulu Seuma,Ds. Bulu Seuma,Jalan Nasional,0.72,4.5,,,0.7,0.0,0.0,0.0,Peningkatan 2015,2017
+K302,Kabupaten,Siompin - Ketangkuhan,Kolektor Sekunder,Suro,Siompin - Ketangkuhan,Siompin,Ketangkuhan,1.19,5.0,,,0.0,0.8,0.4,0.0,Peningkatan 2018,2017
+K303,Kabupaten,Siompin - Komplek SMA N 1 Suro,Kolektor Sekunder,Suro,Siompin,Siompin,Komplek SMA N 1 Suro,0.74,4.5,,,0.7,0.0,0.0,0.0,Peningkatan 2014,2017
+K304,Kabupaten,Lae Gambir - Keras,Kolektor Sekunder,Suro,Lae Gambir - Keras,Lae Gambir,Keras,1.1,5.0,,,0.0,0.6,0.5,0.0,,2017
+K305,Kabupaten,Siompin - Lae Gambir - Guha,Kolektor Sekunder,Suro,Siompin - Lae Gambir - Guha,Siompin,Guha,2.32,5.0,,,1.0,1.0,0.3,0.0,,2017
+K306,Kabupaten,Siompin - Bulu Ara,Kolektor Sekunder,Suro,Siompin - Bulu Ara,Siompin,Bulu Ara,5.11,5.0,,,0.0,0.0,4.8,0.3,,2017
+K307,Kabupaten,Mandumpang - Bulu Ara,Kolektor Sekunder,Suro,Mandumpang - Bulu Ara,Mandumpang,Bulu Ara,2.03,5.0,,,0.2,0.8,1.0,0.0,,2017
+K308,Kabupaten,Mandumpang - Alur Linci,Kolektor Sekunder,Suro,Mandumpang - Alur Linci,Mandumpang,Alur Linci,2.11,5.0,,,0.5,0.9,0.4,0.3,,2017
+K309,Kabupaten,Lingkar Ujung Sialit,Kolektor Sekunder,Pulau Banyak Barat,Ujung Sialit,Ujung Sialit,Ujung Sialit,0.52,5.0,,,0.0,0.0,0.0,0.8,,2017
+K310,Kabupaten,Ujung Sialit III,Kolektor Sekunder,Pulau Banyak Barat,Ujung Sialit,Ujung Sialit,Ujung Sialit,0.08,4.5,,,0.0,0.0,0.0,0.1,,2017
+K311,Kabupaten,Ujung Sialit I,Kolektor Sekunder,Pulau Banyak Barat,Ujung Sialit,Ujung Sialit,Ujung Sialit,0.1,4.5,,,0.0,0.0,0.0,0.1,,2017
+K312,Kabupaten,Ujung Sialit II,Kolektor Sekunder,Pulau Banyak Barat,Ujung Sialit,Ujung Sialit,Ujung Sialit,0.12,4.5,,,0.0,0.0,0.0,0.1,,2017
+K313,Kabupaten,Kuala Pinang - Gunung Lagan,Kolektor Sekunder,Gunung Meriah,Tanah Bara,Kuala Pinang,Gunung Lagan,1.2,5.0,,,0.0,0.2,1.0,0.0,,2017
+K314,Kabupaten,Jl. Merdeka,Kolektor Sekunder,Singkil,Pasar Singkil,Sp. Jalan Nasional,Ruko Singkil,0.21,6.0,,,0.5,0.0,0.0,0.0,Peningkatan 2013,2017
+K315,Kabupaten,Asan Tola I,Kolektor Sekunder,Pulau Banyak Barat,Asan Tola,Asan Tola,Asan Tola,0.23,4.5,,,0.0,0.0,0.2,0.0,,2017
